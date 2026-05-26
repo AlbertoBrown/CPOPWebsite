@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Noticias – CPOP 30 Aniversario</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <!-- Versión horizontal con información ampliada -->
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:       #0b1a3b;
+      --navy-mid:   #132248;
+      --blue:       #1a3a7c;
+      --blue-bright:#2a5cdb;
+      --yellow:     #f5c518;
+      --yellow-dark:#d4a800;
+      --white:      #ffffff;
+      --light-bg:   #f4f6fb;
+      --text-dark:  #0d1b3e;
+      --text-mid:   #4a5568;
+      --ff:         'Nunito', sans-serif;
+      --radius-lg:  20px;
+      --transition: .25s ease;
+      --shadow:     0 8px 32px rgba(11,26,59,.13);
+      --container:  1100px;
+    }
+
+    body {
+      font-family: var(--ff);
+      background: linear-gradient(160deg, #0b1a3b 0%, #132248 50%, #1a3a7c 100%);
+      background-attachment: fixed;
+      color: var(--text-dark);
+    }
+    a    { text-decoration: none; color: inherit; }
+
+    .container {
+      width: min(100%, var(--container));
+      margin-inline: auto;
+      padding-inline: 24px;
+    }
+
+    /* Título sección */
+    .section-title {
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 900;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+    .star-icon { width: 28px; height: 28px; color: var(--yellow); flex-shrink: 0; }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: .35; transform: scale(1); }
+      50%       { opacity: 1;   transform: scale(1.35); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── SECCIÓN ── */
+    .news {
+      padding: 120px 0 140px;
+      background: transparent;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    /* Fondo decorativo */
+    .news__deco { pointer-events: none; user-select: none; }
+    .news__dot { position: absolute; font-size: 1.4rem; animation: twinkle 3s ease-in-out infinite; }
+    .news__dot--1 { top: 6%;     left: 3%;   color: var(--yellow);      animation-delay: 0s;   }
+    .news__dot--2 { top: 14%;    right: 5%;  color: var(--blue-bright); animation-delay: 1s;   }
+    .news__dot--3 { bottom: 10%; left: 7%;   color: #4ecdc4;            animation-delay: 2s;   }
+    .news__dot--4 { bottom: 6%;  right: 4%;  color: #ff6b6b;            animation-delay: .5s;  }
+    .news__dot--5 { top: 45%;    left: 1%;   color: var(--yellow);      animation-delay: 1.5s; font-size: .9rem; }
+    .news__dot--6 { top: 60%;    right: 2%;  color: #4ecdc4;            animation-delay: .8s;  font-size: .9rem; }
+
+    .news__header { margin-bottom: 72px; }
+    .news__subtitle {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: rgba(255,255,255,.65);
+      margin-top: -18px;
+    }
+
+    /* ── LISTA DE TARJETAS (apiladas) ── */
+    .news__list {
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+    }
+
+    /* ── TARJETA HORIZONTAL ── */
+    .ncard {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 420px 1fr;   /* imagen fija | contenido */
+      min-height: 320px;
+      transition: transform var(--transition), box-shadow var(--transition);
+      animation: fadeInUp .6s ease both;
+    }
+    .ncard:nth-child(2) { animation-delay: .15s; }
+    .ncard:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(11,26,59,.18);
+    }
+
+    /* Imagen */
+    .ncard__img-wrap {
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .ncard__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      transition: transform .5s ease;
+      display: block;
+    }
+    .ncard:hover .ncard__img { transform: scale(1.05); }
+
+    /* Sin degradado sobre la imagen */
+    .ncard__img-wrap::after { display: none; }
+
+    /* Badge */
+    .ncard__badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      z-index: 2;
+      background: var(--navy);
+      color: var(--white);
+      font-size: .7rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 50px;
+      border-left: 4px solid var(--yellow);
+    }
+    .ncard__badge--transport { border-left-color: #4ecdc4; }
+    .ncard__badge--historia  { border-left-color: #a78bfa; }
+
+    /* Metadatos sobre la imagen (fecha, ubicación) */
+    .ncard__meta {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .ncard__meta-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(11,26,59,.75);
+      backdrop-filter: blur(6px);
+      color: var(--white);
+      font-size: .75rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 50px;
+    }
+    .ncard__meta-icon { font-size: .85rem; }
+
+    /* Cuerpo */
+    .ncard__body {
+      padding: 36px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0;
+      text-align: left;
+    }
+
+    .ncard__category {
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--blue-bright);
+      margin-bottom: 10px;
+    }
+
+    .ncard__title {
+      font-size: 1.45rem;
+      font-weight: 900;
+      color: var(--navy);
+      line-height: 1.25;
+      margin-bottom: 14px;
+    }
+
+    .ncard__lead {
+      font-size: .92rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.55;
+      margin-bottom: 12px;
+      padding-left: 12px;
+      border-left: 3px solid var(--yellow);
+    }
+
+    .ncard__text {
+      font-size: .875rem;
+      font-weight: 600;
+      color: var(--text-mid);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    /* Lista de artistas (chips) */
+    .ncard__artists {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 24px;
+    }
+    .ncard__chip {
+      background: var(--light-bg);
+      color: var(--navy);
+      font-size: .72rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 50px;
+      border: 1.5px solid rgba(11,26,59,.12);
+      white-space: nowrap;
+    }
+    .ncard__chip--plus {
+      background: var(--navy);
+      color: var(--white);
+      border-color: var(--navy);
+    }
+
+    /* Caja de precio */
+    .ncard__price-box {
+      background: linear-gradient(135deg, var(--yellow) 0%, #ffd84d 100%);
+      border-radius: 14px;
+      padding: 18px 22px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .ncard__price-main {
+      display: flex;
+      align-items: baseline;
+      gap: 5px;
+      flex-shrink: 0;
+    }
+    .ncard__price-num   { font-size: 2.4rem; font-weight: 900; color: var(--navy); line-height: 1; }
+    .ncard__price-label { font-size: .8rem; font-weight: 800; color: var(--navy); text-transform: uppercase; letter-spacing: .08em; }
+    .ncard__price-detail { flex: 1; }
+    .ncard__price-line  { font-size: .82rem; font-weight: 700; color: var(--navy); line-height: 1.55; }
+    .ncard__price-note  { font-size: .75rem; font-weight: 700; color: rgba(11,26,59,.55); margin-top: 3px; }
+
+    /* Pasos "cómo funciona" */
+    .ncard__steps {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .ncard__step {
+      flex: 1;
+      background: var(--light-bg);
+      border-radius: 12px;
+      padding: 12px 10px;
+      text-align: center;
+    }
+    .ncard__step-num {
+      width: 26px; height: 26px;
+      background: var(--navy);
+      color: var(--white);
+      font-size: .75rem;
+      font-weight: 900;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 7px;
+    }
+    .ncard__step-txt {
+      font-size: .72rem;
+      font-weight: 700;
+      color: var(--text-mid);
+      line-height: 1.4;
+    }
+
+    /* Footer de la tarjeta */
+    .ncard__footer {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .ncard__btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      background: var(--yellow);
+      color: var(--navy);
+      font-family: var(--ff);
+      font-size: .88rem;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: 13px 30px;
+      border-radius: 50px;
+      border: 2.5px solid var(--yellow);
+      cursor: pointer;
+      transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+    }
+    .ncard__btn:hover {
+      background: var(--yellow-dark);
+      border-color: var(--yellow-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(245,197,24,.45);
+    }
+    .ncard__btn-arrow { font-size: 1rem; transition: transform var(--transition); }
+    .ncard__btn:hover .ncard__btn-arrow { transform: translateX(4px); }
+
+    .ncard__share {
+      font-size: .8rem;
+      font-weight: 700;
+      color: var(--text-mid);
+      cursor: pointer;
+      transition: color var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .ncard__share:hover { color: var(--blue-bright); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .ncard { grid-template-columns: 320px 1fr; }
+      .ncard__body { padding: 28px 30px; }
+      .ncard__title { font-size: 1.25rem; }
+    }
+    @media (max-width: 700px) {
+      .ncard {
+        grid-template-columns: 1fr;
+        grid-template-rows: 220px auto;
+      }
+      .ncard__img-wrap::after { display: none; }
+      .ncard__body { padding: 24px; }
+      .ncard__steps { flex-direction: column; }
+      .ncard__price-box { flex-direction: column; text-align: center; gap: 8px; }
+      .ncard__btn { width: 100%; justify-content: center; }
+    }
+
+    /* ── Lightbox ── */
+    .lb-overlay {
+      display: none;
+      position: fixed; inset: 0; z-index: 999;
+      background: rgba(0,0,0,.88);
+      align-items: center; justify-content: center;
+      padding: 24px;
+      cursor: zoom-out;
+    }
+    .lb-overlay.is-open { display: flex; animation: lbFadeIn .2s ease; }
+    @keyframes lbFadeIn { from { opacity:0 } to { opacity:1 } }
+    .lb-img {
+      max-width: 92vw; max-height: 90vh;
+      border-radius: 12px;
+      box-shadow: 0 24px 80px rgba(0,0,0,.7);
+      object-fit: contain;
+      cursor: default;
+    }
+    .lb-close {
+      position: fixed; top: 20px; right: 24px;
+      background: rgba(255,255,255,.12);
+      border: none; color: #fff; font-size: 1.6rem; line-height: 1;
+      width: 42px; height: 42px; border-radius: 50%;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: background .2s;
+    }
+    .lb-close:hover { background: rgba(255,255,255,.25); }
+
+    /* ── Topbar ── */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(11,26,59,.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      padding: 14px 0;
+    }
+    .topbar__inner {
+      width: min(100%, var(--container));
+      margin-inline: auto;
+      padding-inline: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .topbar__back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .82rem;
+      font-weight: 800;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.75);
+      transition: color .2s, transform .2s;
+    }
+    .topbar__back:hover { color: var(--white); transform: translateX(-3px); }
+    .topbar__title {
+      font-size: .8rem;
+      font-weight: 800;
+      color: rgba(255,255,255,.45);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .topbar__cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--yellow);
+      color: var(--navy);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      padding: 9px 20px;
+      border-radius: 50px;
+      transition: background .2s, transform .2s;
+    }
+    .topbar__cta:hover { background: var(--yellow-dark); transform: translateY(-1px); }
+    @media (max-width: 600px) {
+      .topbar__title { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Barra de navegación -->
+  <nav class="topbar">
+    <div class="topbar__inner">
+      <a href="index.html" class="topbar__back">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg>
+        Volver a la web
+      </a>
+      <span class="topbar__title">Últimas Noticias</span>
+      <a href="https://www.ingresse.com/cpop-alburquerque/?fbclid=IwdGRjcASCII5leHRuA2FlbQIxMQBzcnRjBmFwcF9pZAo2NjI4NTY4Mzc5AAEee5uqFv4fO0525LSwj2ie0vXU6-nmaHX3tvUfMMzoU2Lqj_KQda3P3f-u3kg_aem_mg-QYjBcH6FSSytffSt7Vg&utm_id=97758_v0_s00_e0_tv2_a1dennhb5nbjy0" target="_blank" rel="noopener" class="topbar__cta">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l7.1-1.01z"/></svg>
+        Comprar entradas
+      </a>
+    </div>
+  </nav>
+
+  <section class="news" id="noticias">
+
+    <div class="news__deco" aria-hidden="true">
+      <span class="news__dot news__dot--1">★</span>
+      <span class="news__dot news__dot--2">★</span>
+      <span class="news__dot news__dot--3">✦</span>
+      <span class="news__dot news__dot--4">★</span>
+      <span class="news__dot news__dot--5">✦</span>
+      <span class="news__dot news__dot--6">★</span>
+    </div>
+
+    <div class="container">
+
+      <div class="news__header">
+        <h2 class="section-title">
+          <svg class="star-icon" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2l2.9 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l7.1-1.01z"/>
+          </svg>
+          Últimas Noticias
+          <svg class="star-icon" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2l2.9 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l7.1-1.01z"/>
+          </svg>
+        </h2>
+        <p class="news__subtitle">Todo lo que necesitas saber para vivir el CPOP 30 Aniversario</p>
+      </div>
+
+      <div class="news__list">
+
+        <!-- ══════════════════════════════════════════
+             TARJETA 1 — Cartel oficial (imagen izqda)
+        ══════════════════════════════════════════ -->
+        <article class="ncard">
+
+          <div class="ncard__img-wrap">
+            <img src="IMG/cpop.png" alt="Cartel CPOP 30 Aniversario" class="ncard__img" loading="lazy" />
+            <span class="ncard__badge">Cartel oficial</span>
+            <div class="ncard__meta">
+              <span class="ncard__meta-item">
+                <span class="ncard__meta-icon">📅</span> 21 · 22 · 23 de agosto 2026
+              </span>
+              <span class="ncard__meta-item">
+                <span class="ncard__meta-icon">📍</span> Alburquerque, Badajoz
+              </span>
+            </div>
+          </div>
+
+          <div class="ncard__body">
+            <p class="ncard__category">Música · Anuncio de cartel</p>
+            <h3 class="ncard__title">Ya tenemos cartel completo para el CPOP 30 Aniversario</h3>
+            <p class="ncard__lead">Tres noches, doce artistas y una celebración única para los 30 años de la fiesta más indie de Extremadura.</p>
+            <p class="ncard__text">La organización ha confirmado el cartel definitivo de esta edición especial. Una selección que mezcla veteranos de la escena con nombres emergentes del indie y el pop alternativo nacional, todo ello en el encantador escenario del castillo de Alburquerque.</p>
+
+            <div class="ncard__artists">
+              <span class="ncard__chip">Apartamentos Acapulco</span>
+              <span class="ncard__chip">Aurora Roja</span>
+              <span class="ncard__chip">Julien Elsie</span>
+              <span class="ncard__chip">La Habitación Roja</span>
+              <span class="ncard__chip">Meteosat</span>
+              <span class="ncard__chip">Miguel Rivera (Maga)</span>
+              <span class="ncard__chip">Nadie Patín</span>
+              <span class="ncard__chip">Pálida Tez</span>
+              <span class="ncard__chip">Patronato</span>
+              <span class="ncard__chip">Pequeño Mal</span>
+              <span class="ncard__chip">Yaveremos</span>
+              <span class="ncard__chip ncard__chip--plus">+ Grupo Sorpresa</span>
+            </div>
+
+            <div class="ncard__footer">
+              <a href="#" class="ncard__btn" data-lightbox="IMG/Cpop2.png">
+                VER CARTEL
+                <span class="ncard__btn-arrow">→</span>
+              </a>
+              <span class="ncard__share">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                Compartir
+              </span>
+            </div>
+          </div>
+
+        </article>
+
+        <!-- ══════════════════════════════════════════
+             TARJETA 2 — Angel Drive (imagen izqda)
+        ══════════════════════════════════════════ -->
+        <article class="ncard">
+
+          <div class="ncard__img-wrap">
+            <img src="IMG/angel_drive_horizontal.png" alt="Angel Drive – conductor privado CPOP" class="ncard__img" loading="lazy" />
+            <span class="ncard__badge ncard__badge--transport">Transporte</span>
+            <div class="ncard__meta">
+              <span class="ncard__meta-item">
+                <span class="ncard__meta-icon">🚗</span> Badajoz ↔ Alburquerque
+              </span>
+              <span class="ncard__meta-item">
+                <span class="ncard__meta-icon">🌙</span> Servicio nocturno hasta las 6h
+              </span>
+            </div>
+          </div>
+
+          <div class="ncard__body">
+            <p class="ncard__category">Servicios · Transporte</p>
+            <h3 class="ncard__title">¿De CPOP a Badajoz? Nosotros conducimos</h3>
+            <p class="ncard__lead">Lleva tu coche al festival y vuelve tranquilo a casa. Angel Drive pone el conductor; tú pones las ganas.</p>
+            <p class="ncard__text">Con Angel Drive puedes disfrutar del CPOP sin preocuparte por quién conduce de vuelta. Un conductor profesional se desplaza hasta el festival, coge tu coche y os lleva a todos a Badajoz de forma segura. Solo tienes que reservar con antelación.</p>
+
+            <div class="ncard__steps">
+              <div class="ncard__step">
+                <div class="ncard__step-num">1</div>
+                <p class="ncard__step-txt">Reserva online antes del festival</p>
+              </div>
+              <div class="ncard__step">
+                <div class="ncard__step-num">2</div>
+                <p class="ncard__step-txt">El conductor te encuentra en el recinto</p>
+              </div>
+              <div class="ncard__step">
+                <div class="ncard__step-num">3</div>
+                <p class="ncard__step-txt">Llegaréis a casa en vuestro propio coche</p>
+              </div>
+            </div>
+
+            <div class="ncard__price-box">
+              <div class="ncard__price-main">
+                <span class="ncard__price-num">21,38 €</span>
+                <span class="ncard__price-label">/persona</span>
+              </div>
+              <div class="ncard__price-detail">
+                <p class="ncard__price-line">Trayecto estimado completo: <strong>85,50 €</strong></p>
+                <p class="ncard__price-line">Dividido entre 4 personas = precio imbatible</p>
+                <p class="ncard__price-note">Precio orientativo · sujeto a distancia real</p>
+              </div>
+            </div>
+
+            <div class="ncard__footer">
+              <a href="#" class="ncard__btn" data-lightbox="IMG/Angel_Drive.png">
+                VER MÁS
+                <span class="ncard__btn-arrow">→</span>
+              </a>
+              <span class="ncard__share">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                Compartir
+              </span>
+            </div>
+          </div>
+
+        </article>
+
+        <!-- ══════════════════════════════════════════
+             TARJETA 3 — Volvemos al origen (imagen izqda)
+        ══════════════════════════════════════════ -->
+        <article class="ncard">
+
+          <div class="ncard__img-wrap">
+            <img src="IMG/baluarte.jpg" alt="Castillo de Luna – CPOP 30 Aniversario" class="ncard__img" loading="lazy" />
+            <span class="ncard__badge ncard__badge--historia">30 Aniversario</span>
+            <div class="ncard__meta">
+              <span class="ncard__meta-item">
+                <span class="ncard__meta-icon">🏰</span> Castillo de Luna, Alburquerque
+              </span>
+              <span class="ncard__meta-item">
+                <span class="ncard__meta-icon">🎉</span> 30 años de historia
+              </span>
+            </div>
+          </div>
+
+          <div class="ncard__body">
+            <p class="ncard__category">Historia · 30 Aniversario</p>
+            <h3 class="ncard__title">Volvemos hacia donde todo empezó</h3>
+            <p class="ncard__lead">Treinta años después, regresamos al lugar donde nació la historia del CPOP.</p>
+            <p class="ncard__text">Volvemos al Castillo de Luna. Volvemos a las noches de verano, a los conciertos entre amigos, a las canciones que marcaron generaciones y a esa forma única de entender la música independiente.</p>
+            <p class="ncard__text">CPOP 30 no es solo un aniversario. Es una vuelta al origen. En un momento donde muchos festivales han perdido su esencia, nosotros seguimos creyendo en la cercanía, en las bandas con personalidad y en los conciertos que se recuerdan durante años.</p>
+            <p class="ncard__text">Queremos recuperar aquella sensación de descubrir música bajo las estrellas, compartir canciones entre amigos y sentir que formas parte de algo especial. Una historia que empezó hace tres décadas y que hoy, más viva que nunca, vuelve al baluarte.</p>
+
+            <div class="ncard__footer">
+              <a href="#" class="ncard__btn" data-lightbox="IMG/cpop_baluarte.png">
+                VER LUGAR
+                <span class="ncard__btn-arrow">→</span>
+              </a>
+              <span class="ncard__share">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                Compartir
+              </span>
+            </div>
+          </div>
+
+        </article>
+
+        <!-- ════════════════════════════════════════════
+             TARJETA 4 — Buses oficiales
+        ════════════════════════════════════════════ -->
+        <article class="ncard">
+
+          <div class="ncard__img-wrap">
+            <img src="IMG/buses_oficiales.png" alt="Buses oficiales CPOP 30 Aniversario" class="ncard__img" loading="lazy" />
+            <span class="ncard__badge ncard__badge--transport">Transporte</span>
+            <div class="ncard__meta">
+              <span class="ncard__meta-item">
+                <span class="ncard__meta-icon">🚌</span> Desde Badajoz y alrededores
+              </span>
+              <span class="ncard__meta-item">
+                <span class="ncard__meta-icon">🕒</span> Horarios próximamente
+              </span>
+            </div>
+          </div>
+
+          <div class="ncard__body">
+            <p class="ncard__category">Servicios · Transporte</p>
+            <h3 class="ncard__title">Buses oficiales al CPOP 30 Aniversario</h3>
+            <p class="ncard__lead">Pronto tendremos todos los horarios y puntos de recogida de los buses oficiales.</p>
+            <p class="ncard__text">Estamos trabajando para ofrecerte la mejor opción de transporte colectivo hasta el festival. Los buses oficiales saldrán desde distintos puntos de la provincia y estarán disponibles los tres días del evento.</p>
+            <p class="ncard__text">En cuanto tengamos los horarios definitivos y los precios confirmados, los publicaremos aquí y en nuestras redes sociales. ¡Estate atento!</p>
+
+            <div class="ncard__footer">
+              <a href="#" class="ncard__btn" data-lightbox="IMG/buses_oficiales.png">
+                VER MÁS
+                <span class="ncard__btn-arrow">→</span>
+              </a>
+              <span class="ncard__share">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                Compartir
+              </span>
+            </div>
+          </div>
+
+        </article>
+
+      </div><!-- /news__list -->
+
+      <!-- Botón volver -->
+      <div style="text-align:center; margin-top: 56px;">
+        <a href="index.html" style="
+          display: inline-flex; align-items: center; gap: 9px;
+          background: transparent;
+          border: 2px solid rgba(255,255,255,.35);
+          color: rgba(255,255,255,.8);
+          font-family: var(--ff); font-size: .88rem; font-weight: 800;
+          letter-spacing: .08em; text-transform: uppercase;
+          padding: 13px 32px; border-radius: 50px;
+          transition: border-color .2s, color .2s, background .2s;
+        "
+        onmouseover="this.style.borderColor='#f5c518';this.style.color='#f5c518';"
+        onmouseout="this.style.borderColor='rgba(255,255,255,.35)';this.style.color='rgba(255,255,255,.8)';"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg>
+          Volver a la landing
+        </a>
+      </div>
+
+    </div><!-- /container -->
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lb-overlay" id="lbOverlay" role="dialog" aria-modal="true">
+    <button class="lb-close" id="lbClose" aria-label="Cerrar">✕</button>
+    <img class="lb-img" id="lbImg" src="" alt="" />
+  </div>
+
+  <script>
+    (function () {
+      const overlay = document.getElementById('lbOverlay');
+      const img     = document.getElementById('lbImg');
+      const close   = document.getElementById('lbClose');
+
+      document.querySelectorAll('[data-lightbox]').forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          img.src = btn.dataset.lightbox;
+          img.alt = btn.textContent.trim();
+          overlay.classList.add('is-open');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+
+      function closeLb() {
+        overlay.classList.remove('is-open');
+        img.src = '';
+        document.body.style.overflow = '';
+      }
+
+      close.addEventListener('click', closeLb);
+      overlay.addEventListener('click', function (e) {
+        if (e.target === overlay) closeLb();
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeLb();
+      });
+    })();
+  </script>
+
+</body>
+</html>

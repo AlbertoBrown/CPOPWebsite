@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CPOP Albuquerque – Fiesta 30 Aniversario</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       HEADER
+  ============================================================ -->
+  <header class="header" id="header">
+    <div class="header__inner container">
+
+      <!-- Logo -->
+      <a href="#inicio" class="header__logo" aria-label="CPOP Albuquerque – Inicio">
+        <div class="logo-block">
+          <span class="logo-cpop">
+            <span class="lc lc--c">C</span><span class="lc lc--p1">P</span><span class="lc lc--o">O</span><span class="lc lc--p2">P</span>
+          </span>
+          <span class="logo-sub">ALBURQUERQUE</span>
+          <span class="logo-tagline">UNA CELEBRACIÓN DEL POP Y LA AMISTAD</span>
+        </div>
+      </a>
+
+      <!-- Menú hamburguesa (móvil) -->
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <!-- Navegación principal -->
+      <nav class="nav" id="mainNav" aria-label="Navegación principal">
+        <ul class="nav__list">
+          <li><a href="#inicio"   class="nav__link active">Inicio</a></li>
+          <li><a href="#artistas" class="nav__link">Artistas</a></li>
+          <li><a href="#info"     class="nav__link">Info práctica</a></li>
+          <li><a href="#noticias" class="nav__link">Noticias</a></li>
+          <li><a href="#contacto" class="nav__link">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <!-- Botón entradas -->
+      <a href="#entradas" class="btn btn--yellow btn--sm header__cta">Entradas</a>
+
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+         HERO
+    ============================================================ -->
+    <section class="hero" id="inicio">
+
+      <!-- Estrellas decorativas (generadas por JS) -->
+      <div class="hero__stars" id="heroStars" aria-hidden="true"></div>
+
+      <!-- Silueta del castillo -->
+      <img src="IMG/castillo.pn" alt="" class="hero__castillo" aria-hidden="true" />
+
+      <div class="hero__inner container">
+
+        <!-- Contenido textual -->
+        <div class="hero__content">
+          <h1 class="hero__title">
+            <span class="hero__title--white">Fiesta</span><br />
+            <span class="hero__title--yellow">30 Aniversario</span>
+          </h1>
+          <p class="hero__subtitle">Celebramos nuestra fiesta de cumpleaños donde empezó todo hace 30 años.<br><br>Un evento underground con aforo limitado para volver a disfrutar de canciones honestas, guitarras y ruido.</p>
+          <ul class="hero__meta">
+            <li>
+              <!-- Icono calendario -->
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              21–22/08/2026
+            </li>
+            <li>
+              <!-- Icono ubicación -->
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+              Baluartes Castillo de Luna, Albuquerque (Badajoz)
+            </li>
+          </ul>
+          <div class="hero__btns">
+            <a href="https://www.ingresse.com/cpop-alburquerque/?fbclid=IwdGRjcASCII5leHRuA2FlbQIxMQBzcnRjBmFwcF9pZAo2NjI4NTY4Mzc5AAEee5uqFv4fO0525LSwj2ie0vXU6-nmaHX3tvUfMMzoU2Lqj_KQda3P3f-u3kg_aem_mg-QYjBcH6FSSytffSt7Vg&utm_id=97758_v0_s00_e0_tv2_a1dennhb5nbjy0" class="btn btn--yellow">Comprar entradas</a>
+            <a href="#" class="btn btn--outline">
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              Ver vídeo
+            </a>
+          </div>
+        </div>
+
+        <!-- Imagen principal -->
+        <div class="hero__img-wrap">
+          <img src="IMG/banda_cpop.png" alt="Personajes del CPOP Albuquerque" class="hero__img" />
+        </div>
+
+      </div>
+
+      <!-- Franja patrocinadores dentro del hero -->
+      <div class="sponsors-bar" aria-label="Patrocinadores y colaboradores">
+        <div class="sponsors-bar__inner container">
+          <p class="sponsors-bar__label">Con el apoyo de</p>
+          <div class="sponsors-bar__logos">
+            <a href="#" class="sponsors-bar__item sponsors-bar__item--main" aria-label="Diputación de Badajoz">
+              <img src="IMG/logo_diputacion.png" alt="Diputación de Badajoz" />
+            </a>
+            <a href="#" class="sponsors-bar__item sponsors-bar__item--main sponsors-bar__item--xl" aria-label="Ayuntamiento de Alburquerque">
+              <img src="IMG/logo_ayuntamiento.png" alt="Ayuntamiento de Alburquerque" />
+            </a>
+            <a href="#" class="sponsors-bar__item" aria-label="Caja Rural de Extremadura">
+              <img src="IMG/caja_rural.png" alt="Caja Rural de Extremadura" />
+            </a>
+            <a href="#" class="sponsors-bar__item sponsors-bar__item--main" aria-label="Extremadura">
+              <img src="IMG/logo_extremadura.png" alt="Extremadura" />
+            </a>
+            <a href="#" class="sponsors-bar__item" aria-label="Muzikalia">
+              <img src="IMG/logo_muzikalia.png" alt="Muzikalia" />
+            </a>
+            <a href="#" class="sponsors-bar__item sponsors-bar__item--main" aria-label="La Merienda">
+              <img src="IMG/logo_lamerienda.png" alt="La Merienda" />
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ============================================================
+         CONTADOR
+    ============================================================ -->
+    <section class="countdown" id="countdown" aria-label="Cuenta atrás para el festival">
+      <div class="container">
+        <p class="countdown__label">FALTAN</p>
+        <div class="countdown__grid">
+          <div class="countdown__unit">
+            <span class="countdown__num" id="cdDays">–</span>
+            <span class="countdown__text">DÍAS</span>
+          </div>
+          <div class="countdown__sep" aria-hidden="true">|</div>
+          <div class="countdown__unit">
+            <span class="countdown__num" id="cdHours">–</span>
+            <span class="countdown__text">HORAS</span>
+          </div>
+          <div class="countdown__sep" aria-hidden="true">|</div>
+          <div class="countdown__unit">
+            <span class="countdown__num" id="cdMinutes">–</span>
+            <span class="countdown__text">MINUTOS</span>
+          </div>
+          <div class="countdown__sep" aria-hidden="true">|</div>
+          <div class="countdown__unit">
+            <span class="countdown__num" id="cdSeconds">–</span>
+            <span class="countdown__text">SEGUNDOS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ARTISTAS
+    ============================================================ -->
+    <section class="artists" id="artistas">
+      <div class="container">
+
+        <h2 class="section-title">
+          <svg class="star-icon" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l7.1-1.01z"/></svg>
+          Artistas Confirmados
+          <svg class="star-icon" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l7.1-1.01z"/></svg>
+        </h2>
+
+        <div class="artists__list" role="list">
+          <span role="listitem">Apartamentos Acapulco</span>
+          <span class="sep" aria-hidden="true">·</span>
+          <span role="listitem">Aurora Roja</span>
+          <span class="sep" aria-hidden="true">·</span>
+          <span role="listitem">Julien Elsie</span>
+          <span class="sep" aria-hidden="true">·</span>
+          <span role="listitem">La Habitación Roja</span>
+          <span class="sep" aria-hidden="true">·</span>
+          <span role="listitem">Meteosat</span>
+          <span class="sep" aria-hidden="true">·</span>
+          <span role="listitem">Miguel Rivera (Maga)</span>
+          <span class="sep" aria-hidden="true">·</span>
+          <span role="listitem">Nadie Patín</span>
+          <span class="sep" aria-hidden="true">·</span>
+          <span role="listitem">Pálida Tez</span>
+          <span class="sep" aria-hidden="true">·</span>
+          <span role="listitem">Patronato</span>
+          <span class="sep" aria-hidden="true">·</span>
+          <span role="listitem">Pequeño Mal</span>
+          <span class="sep" aria-hidden="true">·</span>
+          <span role="listitem">Yaveremos</span>
+          <span class="sep" aria-hidden="true">+</span>
+          <span role="listitem" class="artists__surprise">Grupo Sorpresa</span>
+        </div>
+
+        <div class="artists__list artists__list--secondary" role="list">
+          <span role="listitem">Fotomatón</span>
+          <span class="sep" aria-hidden="true">·</span>
+          <span role="listitem">La Merienda DJ</span>
+        </div>
+
+        <div class="section-btn-wrap">
+          <a href="noticias-preview.html" class="btn btn--outline-dark">Ver todos los artistas</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CARACTERÍSTICAS
+    ============================================================ -->
+    <section class="features" id="features">
+      <div class="container">
+        <div class="features__grid">
+
+          <!-- Característica 1 -->
+          <article class="feature-card">
+            <div class="feature-card__icon" aria-hidden="true">
+              <img src="IMG/estrella.png" alt="Castillo" />
+            </div>
+            <h3 class="feature-card__title">30 años de historia</h3>
+            <p class="feature-card__desc">Tres décadas celebrando la mejor música pop independiente y la amistad.</p>
+          </article>
+
+          <!-- Característica 2 -->
+          <article class="feature-card">
+            <div class="feature-card__icon" aria-hidden="true">
+              <img src="IMG/castillo.png" alt="Castillo" />
+            </div>
+            <h3 class="feature-card__title">Un lugar único</h3>
+            <p class="feature-card__desc">En el mágico entorno de los Baluartes del Castillo de Luna, en Albuquerque.</p>
+          </article>
+
+          <!-- Característica 3 -->
+          <article class="feature-card">
+            <div class="feature-card__icon" aria-hidden="true">
+              <img src="IMG/personas.png" alt="Personas" />
+            </div>
+            <h3 class="feature-card__title">Música y amistad</h3>
+            <p class="feature-card__desc">Más que un festival, una experiencia para compartir y recordar.</p>
+          </article>
+
+          <!-- Característica 4 -->
+          <article class="feature-card">
+            <div class="feature-card__icon" aria-hidden="true">
+               <img src="IMG/tickets.png" alt="Tickets" />
+            </div>
+            <h3 class="feature-card__title">Edición especial</h3>
+            <p class="feature-card__desc">Conmemoramos 30 años con una edición que será inolvidable.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         BANNER ENTRADAS
+    ============================================================ -->
+    <section class="tickets" id="entradas">
+      <div class="tickets__inner container">
+
+        <div class="tickets__content">
+          <h2 class="tickets__title">Entradas ya a la venta</h2>
+          <p class="tickets__sub">Asegura tu entrada y forma parte de la historia del CPOP.</p>
+          <a href="https://www.ingresse.com/cpop-alburquerque/?fbclid=IwdGRjcASCII5leHRuA2FlbQIxMQBzcnRjBmFwcF9pZAo2NjI4NTY4Mzc5AAEee5uqFv4fO0525LSwj2ie0vXU6-nmaHX3tvUfMMzoU2Lqj_KQda3P3f-u3kg_aem_mg-QYjBcH6FSSytffSt7Vg&utm_id=97758_v0_s00_e0_tv2_a1dennhb5nbjy0" class="btn btn--yellow">Comprar entradas</a>
+        </div>
+
+        <div class="tickets__img-wrap" aria-hidden="true">
+          <img src="IMG/entrada_cpop.png" alt="Entrada CPOP Albuquerque 30 Aniversario" class="tickets__img" />
+        </div>
+
+      </div>
+
+      <!-- Estrellas decorativas -->
+      <span class="tickets__star tickets__star--1" aria-hidden="true">★</span>
+      <span class="tickets__star tickets__star--2" aria-hidden="true">★</span>
+      <span class="tickets__star tickets__star--3" aria-hidden="true">★</span>
+    </section>
+
+    <!-- ============================================================
+         NOTICIAS
+    ============================================================ -->
+    <section class="news" id="noticias">
+
+      <!-- Decoración de fondo -->
+      <div class="news__deco" aria-hidden="true">
+        <span class="news__dot news__dot--1">★</span>
+        <span class="news__dot news__dot--2">★</span>
+        <span class="news__dot news__dot--3">✦</span>
+        <span class="news__dot news__dot--4">★</span>
+      </div>
+
+      <div class="container">
+
+        <div class="news__header">
+          <h2 class="section-title">
+            <svg class="star-icon" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l7.1-1.01z"/></svg>
+            Últimas Noticias
+            <svg class="star-icon" aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l7.1-1.01z"/></svg>
+          </h2>
+          <p class="news__subtitle">Todo lo que necesitas saber para vivir el CPOP 30 Aniversario</p>
+        </div>
+
+        <div class="carousel__wrap">
+          <button class="carousel__arrow carousel__arrow--prev" aria-label="Anterior">&#8592;</button>
+          <div class="news__grid news__grid--3col" id="newsCarousel">
+
+          <!-- Tarjeta 1: Cartel -->
+          <article class="ncard-sm">
+            <div class="ncard-sm__img-wrap">
+              <img src="IMG/cpop.png" alt="Cartel CPOP 30 Aniversario" class="ncard-sm__img" loading="lazy" />
+              <span class="ncard-sm__badge">Cartel oficial</span>
+            </div>
+            <div class="ncard-sm__body">
+              <p class="ncard-sm__cat">Música</p>
+              <h3 class="ncard-sm__title">Ya tenemos cartel completo para el CPOP 30 Aniversario</h3>
+              <p class="ncard-sm__text">Doce artistas. Tres noches. Una edición muy especial en el Castillo de Alburquerque.</p>
+              <a href="noticias-preview.html" class="ncard-sm__btn">LEER MAS →</a>
+            </div>
+          </article>
+
+          <!-- Tarjeta 2: Angel Drive -->
+          <article class="ncard-sm">
+            <div class="ncard-sm__img-wrap">
+              <img src="IMG/angel_drive_horizontal.png" alt="Angel Drive – conductor privado" class="ncard-sm__img" loading="lazy" />
+              <span class="ncard-sm__badge ncard-sm__badge--transport">Transporte</span>
+            </div>
+            <div class="ncard-sm__body">
+              <p class="ncard-sm__cat">Servicios</p>
+              <h3 class="ncard-sm__title">¿De CPOP a Badajoz? Nosotros conducimos</h3>
+              <p class="ncard-sm__text">Disfruta el festival hasta el final. Angel Drive lleva tu coche de vuelta por <strong>21,38 €/persona</strong>.</p>
+              <a href="noticias-preview.html" class="ncard-sm__btn">Reservar →</a>
+            </div>
+          </article>
+
+          <!-- Tarjeta 3: Volvemos al origen -->
+          <article class="ncard-sm">
+            <div class="ncard-sm__img-wrap">
+              <img src="IMG/baluarte.jpg" alt="Castillo de Luna – CPOP 30 Aniversario" class="ncard-sm__img" loading="lazy" />
+              <span class="ncard-sm__badge ncard-sm__badge--historia">30 Aniversario</span>
+            </div>
+            <div class="ncard-sm__body">
+              <p class="ncard-sm__cat">Historia</p>
+              <h3 class="ncard-sm__title">Volvemos hacia donde todo empezó</h3>
+              <p class="ncard-sm__text">Treinta años después, regresamos al Castillo de Luna. CPOP 30 no es solo un aniversario — es una vuelta al origen.</p>
+              <a href="noticias-preview.html" class="ncard-sm__btn">Leer más →</a>
+            </div>
+          </article>
+
+          <!-- Tarjeta 4: Buses oficiales -->
+          <article class="ncard-sm">
+            <div class="ncard-sm__img-wrap">
+              <img src="IMG/buses_oficiales.png" alt="Buses oficiales CPOP 30 Aniversario" class="ncard-sm__img" loading="lazy" />
+              <span class="ncard-sm__badge ncard-sm__badge--transport">Transporte</span>
+            </div>
+            <div class="ncard-sm__body">
+              <p class="ncard-sm__cat">Servicios</p>
+              <h3 class="ncard-sm__title">Buses oficiales al CPOP — próximamente los horarios</h3>
+              <p class="ncard-sm__text">Estamos preparando los horarios de los buses oficiales. Muy pronto tendrás toda la información aquí.</p>
+              <a href="noticias-preview.html" class="ncard-sm__btn">Más info →</a>
+            </div>
+          </article>
+
+        </div><!-- /news__grid -->
+          <button class="carousel__arrow carousel__arrow--next" aria-label="Siguiente">&#8594;</button>
+        </div><!-- /carousel__wrap -->
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer" id="contacto">
+
+    <!-- Silueta ciudad footer -->
+    <div class="footer__skyline" aria-hidden="true"></div>
+
+    <div class="footer__inner container">
+
+      <!-- Logo + redes -->
+      <div class="footer__brand">
+        <div class="logo-block logo-block--white">
+          <span class="logo-cpop">
+            <span class="lc lc--c">C</span><span class="lc lc--p1">P</span><span class="lc lc--o">O</span><span class="lc lc--p2">P</span>
+          </span>
+          <span class="logo-sub">ALBURQUERQUE</span>
+          <span class="logo-tagline">UNA CELEBRACIÓN DEL POP Y LA AMISTAD</span>
+        </div>
+        <nav class="social-nav" aria-label="Redes sociales">
+          <a href="#" class="social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.235 2.686.235v2.97h-1.513c-1.491 0-1.956.93-1.956 1.887v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Twitter / X">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Spotify">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+          </a>
+        </nav>
+      </div>
+
+      <!-- Columna Info -->
+      <div class="footer__col">
+        <h4 class="footer__col-title">INFO</h4>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#artistas">Artistas</a></li>
+          <li><a href="#entradas">Entradas</a></li>
+          <li><a href="#info">Info práctica</a></li>
+          <li><a href="#noticias">Noticias</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+
+      <!-- Columna Legal -->
+      <div class="footer__col">
+        <h4 class="footer__col-title">LEGAL</h4>
+        <ul>
+          <li><a href="#">Aviso legal</a></li>
+          <li><a href="#">Política de privacidad</a></li>
+          <li><a href="#">Política de cookies</a></li>
+        </ul>
+      </div>
+
+      <!-- Columna Organiza -->
+      <div class="footer__col footer__col--organiza">
+        <h4 class="footer__col-title">ORGANIZA</h4>
+        <div class="sponsors">
+          <a href="#" class="sponsor"><img src="IMG/logo_diputacion.png"   alt="Diputación de Badajoz" /></a>
+          <a href="#" class="sponsor"><img src="IMG/logo_ayuntamiento.png" alt="Ayuntamiento de Albuquerque" /></a>
+          <a href="#" class="sponsor"><img src="IMG/caja_rural.png"        alt="Caja Rural de Extremadura" /></a>
+          <a href="#" class="sponsor"><img src="IMG/logo_muzikalia.png"    alt="Muzikalia" /></a>
+          <a href="#" class="sponsor"><img src="IMG/logo_extremadura.png"  alt="Extremadura" /></a>
+          <a href="#" class="sponsor"><img src="IMG/logo_lamerienda.png"   alt="La Merienda" /></a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <p>© 2026 CPOP Albuquerque. Todos los derechos reservados.</p>
+    </div>
+
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
