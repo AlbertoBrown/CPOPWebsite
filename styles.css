@@ -1158,7 +1158,7 @@ ul { list-style: none; }
 
 .ncard-sm__img-wrap {
   position: relative;
-  aspect-ratio: 16/9;
+  aspect-ratio: 4/3;
   overflow: hidden;
 }
 .ncard-sm__img {
