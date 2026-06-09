@@ -102,47 +102,48 @@
       max-width: 520px;
       margin-bottom: 36px;
     }
-    .camping-hero__features {
-      display: flex;
-      align-items: center;
-      flex-wrap: nowrap;
-      gap: 0;
-      background: rgba(255,255,255,.08);
-      border: 1px solid rgba(255,255,255,.15);
-      border-radius: 14px;
-      padding: 10px 12px;
-      backdrop-filter: blur(8px);
+    /* ── TICKER CAMPING ── */
+    .camping-feat-ticker {
       width: 100%;
-    }
-    .camping-hero__feat {
+      background: #fff;
+      border-top: 1px solid #e8e8e8;
+      border-bottom: 1px solid #e8e8e8;
+      overflow: hidden;
+      height: 52px;
       display: flex;
       align-items: center;
-      gap: 6px;
-      padding: 4px 10px;
-      flex: 1;
-      min-width: 0;
-      justify-content: center;
     }
-    .camping-hero__feat + .camping-hero__feat {
-      border-left: 1px solid rgba(255,255,255,.25);
-    }
-    .camping-hero__feat-icon { font-size: 1.3rem; flex-shrink: 0; }
-    .camping-hero__feat-title {
-      font-size: .75rem;
-      font-weight: 900;
-      color: #fff;
-      text-transform: uppercase;
-      letter-spacing: .04em;
+    .camping-feat-ticker__track {
+      display: flex;
+      align-items: center;
       white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      animation: camping-scroll 28s linear infinite;
+      will-change: transform;
     }
-    .camping-hero__feat-info { display: flex; flex-direction: column; }
-    .camping-hero__feat-sub {
-      font-size: .68rem;
-      font-weight: 600;
-      color: rgba(255,255,255,.65);
-      line-height: 1.3;
+    .camping-feat-ticker__track:hover { animation-play-state: paused; }
+    @keyframes camping-scroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .camping-feat-ticker__item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 28px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 1rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: #0d1b3e;
+      white-space: nowrap;
+    }
+    .camping-feat-ticker__sep {
+      display: inline-block;
+      padding: 0 8px;
+      color: #f5c518;
+      font-size: 1rem;
+      line-height: 1;
     }
 
     /* ── INFO STRIP ── */
@@ -294,10 +295,8 @@
       .topbar__title { display: none; }
       .camping-hero { min-height: 420px; background-attachment: scroll; }
       .camping-hero__bg { background-attachment: scroll; }
-      .camping-hero__features { padding: 8px 6px; }
-      .camping-hero__feat { padding: 4px 6px; gap: 4px; }
-      .camping-hero__feat-icon { font-size: 1rem; }
-      .camping-hero__feat-title { font-size: .58rem; letter-spacing: .02em; }
+      .camping-feat-ticker { height: 44px; }
+      .camping-feat-ticker__item { font-size: .72rem; padding: 0 18px; gap: 6px; }
       .camping-info { grid-template-columns: 1fr; }
       .camping-info__body { padding: 40px 24px; }
       .camping-info__carousel { height: 280px; }
@@ -345,34 +344,36 @@
       <span class="camping-hero__badge">⛺ Camping gratuito</span>
       <h1 class="camping-hero__title">¿Se te ocurre<br>un plan mejor?</h1>
       <p class="camping-hero__sub">Disfruta de una experiencia única en un entorno natural privilegiado. <strong style="color:var(--yellow);">Acampa gratis</strong>, refréscate en la piscina municipal y vive el festival al máximo durante todo el fin de semana.</p>
-      <div class="camping-hero__features">
-        <div class="camping-hero__feat">
-          <span class="camping-hero__feat-icon">🚐</span>
-          <div class="camping-hero__feat-info">
-            <span class="camping-hero__feat-title">Área de Autocaravanas</span>
-          </div>
-        </div>
-        <div class="camping-hero__feat">
-          <span class="camping-hero__feat-icon">⛺</span>
-          <div class="camping-hero__feat-info">
-            <span class="camping-hero__feat-title">Acampa Gratis</span>
-          </div>
-        </div>
-        <div class="camping-hero__feat">
-          <span class="camping-hero__feat-icon">🏊</span>
-          <div class="camping-hero__feat-info">
-            <span class="camping-hero__feat-title">Piscina Incluida</span>
-          </div>
-        </div>
-        <div class="camping-hero__feat">
-          <span class="camping-hero__feat-icon">🎉</span>
-          <div class="camping-hero__feat-info">
-            <span class="camping-hero__feat-title">Ambiente CPOP</span>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
+
+  <!-- Banda informativa ticker -->
+  <div class="camping-feat-ticker" aria-label="Servicios del camping">
+    <div class="camping-feat-ticker__track">
+      <!-- Set 1 -->
+      <span class="camping-feat-ticker__item">⛺ Camping Gratuito</span>
+      <span class="camping-feat-ticker__sep">✦</span>
+      <span class="camping-feat-ticker__item">🚐 Área de Autocaravanas</span>
+      <span class="camping-feat-ticker__sep">✦</span>
+      <span class="camping-feat-ticker__item">🏊 Piscina Municipal</span>
+      <span class="camping-feat-ticker__sep">✦</span>
+      <span class="camping-feat-ticker__item">🎶 A 10 Min del Festival</span>
+      <span class="camping-feat-ticker__sep">✦</span>
+      <span class="camping-feat-ticker__item">🌳 Rodeado de Naturaleza</span>
+      <span class="camping-feat-ticker__sep">✦</span>
+      <!-- Set 2 (copia para bucle infinito) -->
+      <span class="camping-feat-ticker__item">⛺ Camping Gratuito</span>
+      <span class="camping-feat-ticker__sep">✦</span>
+      <span class="camping-feat-ticker__item">🚐 Área de Autocaravanas</span>
+      <span class="camping-feat-ticker__sep">✦</span>
+      <span class="camping-feat-ticker__item">🏊 Piscina Municipal</span>
+      <span class="camping-feat-ticker__sep">✦</span>
+      <span class="camping-feat-ticker__item">🎶 A 10 Min del Festival</span>
+      <span class="camping-feat-ticker__sep">✦</span>
+      <span class="camping-feat-ticker__item">🌳 Rodeado de Naturaleza</span>
+      <span class="camping-feat-ticker__sep">✦</span>
+    </div>
+  </div>
 
   <div class="camping-info">
     <div class="camping-info__body">
