@@ -285,11 +285,11 @@
       background: #0a1830;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 32px;
+      justify-content: center;
+      gap: 64px;
       padding: 56px min(80px, 6vw);
     }
-    .camping-cta__text { flex: 1; }
+    .camping-cta__text { flex: 0 1 520px; }
     .camping-cta__label {
       font-size: .7rem;
       font-weight: 900;
@@ -342,7 +342,8 @@
       .tband__body { padding: 40px 24px; }
       .tband__steps { flex-direction: column; }
       .tband__btn { width: 100%; justify-content: center; }
-      .camping-cta { flex-direction: column; text-align: center; }
+      .camping-cta { flex-direction: column; text-align: center; gap: 24px; padding: 40px 24px; }
+      .camping-cta__text { flex: 0 0 auto; max-width: 100%; }
       .camping-cta__sub { max-width: 100%; }
       .camping-cta__btn { width: 100%; justify-content: center; }
     }
