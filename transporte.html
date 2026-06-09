@@ -41,9 +41,9 @@
     /* ── HERO BANNER ── */
     .transport-hero {
       position: relative;
-      min-height: unset;
+      min-height: 200px;
       display: flex;
-      align-items: flex-end;
+      align-items: center;
       background: linear-gradient(135deg, #0b1a3b 0%, #1a3a7c 100%);
       overflow: hidden;
     }
@@ -52,7 +52,7 @@
       z-index: 1;
       width: min(100%, var(--container));
       margin-inline: auto;
-      padding: 36px 24px;
+      padding: 40px 24px;
     }
     .transport-hero__label {
       font-size: .7rem;
@@ -63,20 +63,18 @@
       margin-bottom: 14px;
     }
     .transport-hero__title {
-      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-size: clamp(1.6rem, 5vw, 3.4rem);
       font-weight: 900;
       color: #fff;
       text-transform: uppercase;
       letter-spacing: .04em;
       line-height: 1.05;
       margin-bottom: 14px;
-      max-width: 680px;
     }
     .transport-hero__sub {
       font-size: 1rem;
       font-weight: 600;
       color: rgba(255,255,255,.7);
-      max-width: 520px;
       line-height: 1.65;
     }
     .transport-hero__deco {
@@ -971,7 +969,7 @@
   <header class="transport-hero">
     <div class="transport-hero__content">
       <p class="transport-hero__label">CPOP 30 Aniversario · Alburquerque</p>
-      <h1 class="transport-hero__title">Tú eliges<br>cómo llegar</h1>
+      <h1 class="transport-hero__title">Tú eliges cómo llegar</h1>
       <p class="transport-hero__sub">Dos opciones cómodas y seguras para ir y volver de la fiesta sin preocupaciones.</p>
     </div>
   </header>
