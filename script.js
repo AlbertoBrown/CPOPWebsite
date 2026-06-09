@@ -118,19 +118,6 @@ function initCountdown() {
 
   tick();
   setInterval(tick, 1000);
-
-  /* Estilo de pulso inyectado dinámicamente */
-  const style = document.createElement('style');
-  style.textContent = `
-    @keyframes pulse-anim {
-      0%   { transform: scale(1); }
-      30%  { transform: scale(1.15); }
-      60%  { transform: scale(0.95); }
-      100% { transform: scale(1); }
-    }
-    .pulse { animation: pulse-anim 0.4s ease; }
-  `;
-  document.head.appendChild(style);
 }
 
 /* ============================================================
@@ -173,21 +160,6 @@ function initStars() {
    ANIMACIONES DE ENTRADA al hacer scroll (Intersection Observer)
 ============================================================ */
 function initScrollAnimations() {
-  /* Inyectar clases CSS de animación */
-  const style = document.createElement('style');
-  style.textContent = `
-    .anim-hidden {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.55s ease, transform 0.55s ease;
-    }
-    .anim-hidden.anim-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  `;
-  document.head.appendChild(style);
-
   /* Seleccionar elementos a animar */
   const targets = document.querySelectorAll(
     '.feature-card, .news-card, .hero__content, .hero__img-wrap, .tickets__content, .tickets__img-wrap, .countdown__unit'

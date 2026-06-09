@@ -10,34 +10,12 @@
   <link rel="stylesheet" href="styles.css" />
 
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --navy:        #0b1a3b;
-      --navy-mid:    #132248;
-      --blue:        #1a3a7c;
-      --yellow:      #f5c518;
-      --yellow-dark: #d4a800;
-      --white:       #ffffff;
-      --ff:          'Nunito', sans-serif;
-      --radius-lg:   20px;
-      --container:   1100px;
-    }
-
     body {
-      font-family: var(--ff);
       background: linear-gradient(160deg, #0b1a3b 0%, #132248 50%, #1a3a7c 100%);
       background-attachment: fixed;
       color: var(--white);
       min-height: 100vh;
       padding-top: 66px;
-    }
-    a { text-decoration: none; color: inherit; }
-
-    .container {
-      width: min(100%, var(--container));
-      margin-inline: auto;
-      padding-inline: 24px;
     }
 
     /* ── CAMPING SECTIONS (full-width) ── */
@@ -329,7 +307,7 @@
           <li><a href="index.html#artistas" class="nav__link">Artistas</a></li>
           <li><a href="index.html#noticias" class="nav__link">Noticias</a></li>
           <li><a href="transporte.html" class="nav__link">Transporte</a></li>
-          <li><a href="camping.html#camping" class="nav__link active">Camping <span style="color:var(--yellow);font-weight:900;">(GRATIS)</span></a></li>
+          <li><a href="camping.html#camping" class="nav__link active">Camping <span class="nav__badge--gratis">(GRATIS)</span></a></li>
           <li><a href="index.html#contacto" class="nav__link">Contacto</a></li>
         </ul>
       </nav>
@@ -377,7 +355,7 @@
     <div class="camping-info__body">
 
       <div class="camping-info__divider"></div>
-      <p class="camping-info__text">El camping está situado junto a la piscina municipal de Alburquerque, en un entorno verde y tranquilo. Dispone de zona para tiendas de campaña y área de autocaravanas, <strong style="color:var(--yellow);">totalmente gratuitas</strong> durante los días del CPOP 30 Aniversario. Sin reserva previa — llega, instala y disfruta.</p>
+      <p class="camping-info__text">El camping está situado junto a la piscina municipal de Alburquerque, en un entorno verde y tranquilo. Dispone de zona para tiendas de campaña y área de autocaravanas, <strong class="text-yellow">totalmente gratuitas</strong> durante los días del CPOP 30 Aniversario. Sin reserva previa — llega, instala y disfruta.</p>
       <a href="https://maps.google.com/maps?q=Piscina+Municipal+Alburquerque+Badajoz" target="_blank" rel="noopener" class="camping-info__link">
         Ver ubicación →
       </a>

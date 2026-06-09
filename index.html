@@ -40,7 +40,7 @@
           <li><a href="#artistas" class="nav__link">Artistas</a></li>
           <li><a href="#noticias" class="nav__link">Noticias</a></li>
           <li><a href="transporte.html" class="nav__link">Transporte</a></li>
-          <li><a href="camping.html" class="nav__link">Camping <span style="color:var(--yellow);font-weight:900;">(GRATIS)</span></a></li>
+          <li><a href="camping.html" class="nav__link">Camping <span class="nav__badge--gratis">(GRATIS)</span></a></li>
           <li><a href="#contacto" class="nav__link">Contacto</a></li>
         </ul>
       </nav>
@@ -498,21 +498,9 @@
   <script src="script.js"></script>
 
   <!-- Lightbox cartel -->
-  <div id="cartelOverlay" style="
-    display:none; position:fixed; inset:0; z-index:2000;
-    background:rgba(0,0,0,.9); align-items:center; justify-content:center;
-    padding:24px; cursor:zoom-out;
-  ">
-    <button id="cartelClose" aria-label="Cerrar" style="
-      position:fixed; top:18px; right:22px;
-      background:rgba(255,255,255,.12); border:none; color:#fff;
-      font-size:1.6rem; width:44px; height:44px; border-radius:50%;
-      cursor:pointer; display:flex; align-items:center; justify-content:center;
-    ">✕</button>
-    <img src="IMG/Cpop2.png" alt="Cartel CPOP 30 Aniversario" style="
-      max-width:92vw; max-height:90vh; border-radius:12px;
-      box-shadow:0 24px 80px rgba(0,0,0,.7); object-fit:contain; cursor:default;
-    " />
+  <div id="cartelOverlay">
+    <button id="cartelClose" aria-label="Cerrar">✕</button>
+    <img src="IMG/Cpop2.png" alt="Cartel CPOP 30 Aniversario" />
   </div>
 
   <script>
