@@ -105,20 +105,22 @@
     .camping-hero__features {
       display: flex;
       align-items: center;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       gap: 0;
       background: rgba(255,255,255,.08);
       border: 1px solid rgba(255,255,255,.15);
       border-radius: 14px;
-      padding: 14px 20px;
+      padding: 10px 12px;
       backdrop-filter: blur(8px);
+      width: 100%;
     }
     .camping-hero__feat {
       display: flex;
       align-items: center;
-      gap: 8px;
-      padding: 4px 20px;
+      gap: 6px;
+      padding: 4px 10px;
       flex: 1;
+      min-width: 0;
       justify-content: center;
     }
     .camping-hero__feat + .camping-hero__feat {
@@ -126,12 +128,14 @@
     }
     .camping-hero__feat-icon { font-size: 1.3rem; flex-shrink: 0; }
     .camping-hero__feat-title {
-      font-size: .8rem;
+      font-size: .75rem;
       font-weight: 900;
       color: #fff;
       text-transform: uppercase;
-      letter-spacing: .05em;
+      letter-spacing: .04em;
       white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .camping-hero__feat-info { display: flex; flex-direction: column; }
     .camping-hero__feat-sub {
@@ -290,8 +294,10 @@
       .topbar__title { display: none; }
       .camping-hero { min-height: 420px; background-attachment: scroll; }
       .camping-hero__bg { background-attachment: scroll; }
-      .camping-hero__features { gap: 8px; }
-      .camping-hero__feat { min-width: calc(50% - 4px); flex: 1; }
+      .camping-hero__features { padding: 8px 6px; }
+      .camping-hero__feat { padding: 4px 6px; gap: 4px; }
+      .camping-hero__feat-icon { font-size: 1rem; }
+      .camping-hero__feat-title { font-size: .58rem; letter-spacing: .02em; }
       .camping-info { grid-template-columns: 1fr; }
       .camping-info__body { padding: 40px 24px; }
       .camping-info__carousel { height: 280px; }
