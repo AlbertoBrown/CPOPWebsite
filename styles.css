@@ -828,11 +828,12 @@ ul { list-style: none; }
     padding: 20px 24px 28px;
     transform: translateY(-110%);
     opacity: 0;
+    pointer-events: none;
     transition: transform 0.35s ease, opacity 0.35s ease;
     z-index: 999;
     box-shadow: 0 8px 24px rgba(0,0,0,.3);
   }
-  .nav.open { transform: translateY(0); opacity: 1; }
+  .nav.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
   .nav__list { flex-direction: column; gap: 6px; }
   .nav__link { padding: 10px 16px; font-size: 1rem; }
   .header__cta { display: none; }
