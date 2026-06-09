@@ -481,15 +481,16 @@ ul { list-style: none; }
   padding: 72px 0;
 }
 .features__grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 28px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
 }
 
 .feature-card {
+  flex: 1;
   background: var(--white);
   border-radius: var(--radius-lg);
-  padding: 36px 24px 28px;
+  padding: 24px 16px 20px;
   text-align: center;
   box-shadow: var(--shadow);
   transition: transform var(--transition), box-shadow var(--transition);
@@ -800,7 +801,7 @@ ul { list-style: none; }
 ============================================================ */
 @media (max-width: 1024px) {
   .features__grid {
-    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
   }
   .footer__inner {
     grid-template-columns: 1fr 1fr;
@@ -862,7 +863,7 @@ ul { list-style: none; }
   .artists__list span { font-size: 1.1rem; }
 
   /* Características */
-  .features__grid { grid-template-columns: 1fr; }
+  .features__grid { flex-direction: column; }
 
   /* Banner entradas */
   .tickets__inner { flex-direction: column; text-align: center; }

@@ -47,6 +47,7 @@ function initHeader() {
 function initMobileNav() {
   const toggle = document.getElementById('navToggle');
   const nav    = document.getElementById('mainNav');
+  const header = document.getElementById('header');
 
   toggle.addEventListener('click', () => {
     const isOpen = toggle.classList.toggle('open');
