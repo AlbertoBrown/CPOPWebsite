@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCountdown();
   initStars();
   initScrollAnimations();
+  initSponsorsCarousel();
 });
 
 /* ============================================================
@@ -266,3 +267,32 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   window.addEventListener('resize', updateArrows);
   updateArrows();
 })();
+
+/* ============================================================
+   CARRUSEL DE PATROCINADORES — flechas prev / next (móvil)
+============================================================ */
+function initSponsorsCarousel() {
+  const logos   = document.getElementById('sponsorsLogos');
+  if (!logos) return;
+
+  const btnPrev = logos.closest('.sponsors-bar__scroll-wrap')?.querySelector('.sponsors-bar__arrow--prev');
+  const btnNext = logos.closest('.sponsors-bar__scroll-wrap')?.querySelector('.sponsors-bar__arrow--next');
+  const STEP = 160;
+
+  function updateArrows() {
+    const maxScroll = logos.scrollWidth - logos.clientWidth;
+    if (btnPrev) btnPrev.disabled = logos.scrollLeft <= 2;
+    if (btnNext) btnNext.disabled = logos.scrollLeft >= maxScroll - 2;
+  }
+
+  if (btnPrev) btnPrev.addEventListener('click', () => {
+    logos.scrollBy({ left: -STEP, behavior: 'smooth' });
+  });
+  if (btnNext) btnNext.addEventListener('click', () => {
+    logos.scrollBy({ left: STEP, behavior: 'smooth' });
+  });
+
+  logos.addEventListener('scroll', updateArrows, { passive: true });
+  window.addEventListener('resize', updateArrows);
+  updateArrows();
+}

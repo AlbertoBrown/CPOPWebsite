@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
   <!-- Versión horizontal con información ampliada -->
 
   <style>
@@ -35,6 +36,7 @@
       background: linear-gradient(160deg, #0b1a3b 0%, #132248 50%, #1a3a7c 100%);
       background-attachment: fixed;
       color: var(--text-dark);
+      padding-top: 66px;
     }
     a    { text-decoration: none; color: inherit; }
 
@@ -394,80 +396,38 @@
     }
     .lb-close:hover { background: rgba(255,255,255,.25); }
 
-    /* ── Topbar ── */
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(11,26,59,.88);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(255,255,255,.1);
-      padding: 14px 0;
-    }
-    .topbar__inner {
-      width: min(100%, var(--container));
-      margin-inline: auto;
-      padding-inline: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-    .topbar__back {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: .82rem;
-      font-weight: 800;
-      letter-spacing: .07em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.75);
-      transition: color .2s, transform .2s;
-    }
-    .topbar__back:hover { color: var(--white); transform: translateX(-3px); }
-    .topbar__title {
-      font-size: .8rem;
-      font-weight: 800;
-      color: rgba(255,255,255,.45);
-      letter-spacing: .12em;
-      text-transform: uppercase;
-    }
-    .topbar__cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: var(--yellow);
-      color: var(--navy);
-      font-size: .78rem;
-      font-weight: 800;
-      letter-spacing: .07em;
-      text-transform: uppercase;
-      padding: 9px 20px;
-      border-radius: 50px;
-      transition: background .2s, transform .2s;
-    }
-    .topbar__cta:hover { background: var(--yellow-dark); transform: translateY(-1px); }
-    @media (max-width: 600px) {
-      .topbar__title { display: none; }
-    }
   </style>
 </head>
 <body>
 
   <!-- Barra de navegación -->
-  <nav class="topbar">
-    <div class="topbar__inner">
-      <a href="index.html" class="topbar__back">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg>
-        Volver a la web
+  <header class="header" id="header">
+    <div class="header__inner container">
+      <a href="index.html" class="header__logo" aria-label="CPOP Albuquerque – Inicio">
+        <div class="logo-block">
+          <span class="logo-cpop">
+            <span class="lc lc--c">C</span><span class="lc lc--p1">P</span><span class="lc lc--o">O</span><span class="lc lc--p2">P</span>
+          </span>
+          <span class="logo-sub">ALBURQUERQUE</span>
+          <span class="logo-tagline">UNA CELEBRACIÓN DEL POP Y LA AMISTAD</span>
+        </div>
       </a>
-      <span class="topbar__title">Últimas Noticias</span>
-      <a href="https://www.ingresse.com/cpop-alburquerque/?fbclid=IwdGRjcASCII5leHRuA2FlbQIxMQBzcnRjBmFwcF9pZAo2NjI4NTY4Mzc5AAEee5uqFv4fO0525LSwj2ie0vXU6-nmaHX3tvUfMMzoU2Lqj_KQda3P3f-u3kg_aem_mg-QYjBcH6FSSytffSt7Vg&utm_id=97758_v0_s00_e0_tv2_a1dennhb5nbjy0" target="_blank" rel="noopener" class="topbar__cta">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l7.1-1.01z"/></svg>
-        Comprar entradas
-      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" id="mainNav" aria-label="Navegación principal">
+        <ul class="nav__list">
+          <li><a href="index.html#inicio" class="nav__link">Inicio</a></li>
+          <li><a href="index.html#artistas" class="nav__link">Artistas</a></li>
+          <li><a href="index.html#noticias" class="nav__link active">Noticias</a></li>
+          <li><a href="transporte.html" class="nav__link">Transporte</a></li>
+          <li><a href="camping.html" class="nav__link">Camping <span style="color:var(--yellow);font-weight:900;">(GRATIS)</span></a></li>
+          <li><a href="index.html#contacto" class="nav__link">Contacto</a></li>
+        </ul>
+      </nav>
+      <a href="https://www.ingresse.com/cpop-alburquerque/?fbclid=IwdGRjcASCII5leHRuA2FlbQIxMQBzcnRjBmFwcF9pZAo2NjI4NTY4Mzc5AAEee5uqFv4fO0525LSwj2ie0vXU6-nmaHX3tvUfMMzoU2Lqj_KQda3P3f-u3kg_aem_mg-QYjBcH6FSSytffSt7Vg&utm_id=97758_v0_s00_e0_tv2_a1dennhb5nbjy0" target="_blank" rel="noopener" class="btn btn--yellow btn--sm header__cta">Entradas</a>
     </div>
-  </nav>
+  </header>
 
   <section class="news" id="noticias">
 
@@ -518,7 +478,7 @@
           <div class="ncard__body">
             <p class="ncard__category">Música · Anuncio de cartel</p>
             <h3 class="ncard__title">Ya tenemos cartel completo para el CPOP 30 Aniversario</h3>
-            <p class="ncard__lead">Tres noches, doce artistas y una celebración única para los 30 años de la fiesta más indie de Extremadura.</p>
+            <p class="ncard__lead">Dos noches, doce artistas y una celebración única para los 30 años de la fiesta más indie de Extremadura.</p>
             <p class="ncard__text">La organización ha confirmado el cartel definitivo de esta edición especial. Una selección que mezcla veteranos de la escena con nombres emergentes del indie y el pop alternativo nacional, todo ello en el encantador escenario del castillo de Alburquerque.</p>
 
             <div class="ncard__artists">
@@ -563,21 +523,21 @@
                 <span class="ncard__meta-icon">🚗</span> Badajoz ↔ Alburquerque
               </span>
               <span class="ncard__meta-item">
-                <span class="ncard__meta-icon">🌙</span> Servicio nocturno hasta las 6h
+                <span class="ncard__meta-icon">🌙</span> Servicio nocturno
               </span>
             </div>
           </div>
 
           <div class="ncard__body">
             <p class="ncard__category">Servicios · Transporte</p>
-            <h3 class="ncard__title">¿De CPOP a Badajoz? Nosotros conducimos</h3>
-            <p class="ncard__lead">Lleva tu coche al festival y vuelve tranquilo a casa. Angel Drive pone el conductor; tú pones las ganas.</p>
-            <p class="ncard__text">Con Angel Drive puedes disfrutar del CPOP sin preocuparte por quién conduce de vuelta. Un conductor profesional se desplaza hasta el festival, coge tu coche y os lleva a todos a Badajoz de forma segura. Solo tienes que reservar con antelación.</p>
+            <h3 class="ncard__title">Servicio Angel Drive</h3>
+            <p class="ncard__lead">Si vienes con tu propio coche, Angel Drive ofrece conductor profesional para llevarte desde CPOP hasta tu hotel o domicilio.</p>
+            <p class="ncard__text">Además, el público de CPOP cuenta con <strong>descuento especial</strong> en la reserva.</p>
 
             <div class="ncard__steps">
               <div class="ncard__step">
                 <div class="ncard__step-num">1</div>
-                <p class="ncard__step-txt">Reserva online antes del festival</p>
+                <p class="ncard__step-txt">Reserva con descuento en el enlace exclusivo CPOP</p>
               </div>
               <div class="ncard__step">
                 <div class="ncard__step-num">2</div>
@@ -585,25 +545,13 @@
               </div>
               <div class="ncard__step">
                 <div class="ncard__step-num">3</div>
-                <p class="ncard__step-txt">Llegaréis a casa en vuestro propio coche</p>
-              </div>
-            </div>
-
-            <div class="ncard__price-box">
-              <div class="ncard__price-main">
-                <span class="ncard__price-num">21,38 €</span>
-                <span class="ncard__price-label">/persona</span>
-              </div>
-              <div class="ncard__price-detail">
-                <p class="ncard__price-line">Trayecto estimado completo: <strong>85,50 €</strong></p>
-                <p class="ncard__price-line">Dividido entre 4 personas = precio imbatible</p>
-                <p class="ncard__price-note">Precio orientativo · sujeto a distancia real</p>
+                <p class="ncard__step-txt">Llegaréis a casa en vuestro propio coche, sin preocupaciones</p>
               </div>
             </div>
 
             <div class="ncard__footer">
-              <a href="#" class="ncard__btn" data-lightbox="IMG/Angel_Drive.png">
-                VER MÁS
+              <a href="https://angeldrive.com.es/cpopalburquerque30" target="_blank" rel="noopener" class="ncard__btn">
+                RESERVAR CONDUCTOR
                 <span class="ncard__btn-arrow">→</span>
               </a>
               <span class="ncard__share">
@@ -639,7 +587,7 @@
             <p class="ncard__lead">Treinta años después, regresamos al lugar donde nació la historia del CPOP.</p>
             <p class="ncard__text">Volvemos al Castillo de Luna. Volvemos a las noches de verano, a los conciertos entre amigos, a las canciones que marcaron generaciones y a esa forma única de entender la música independiente.</p>
             <p class="ncard__text">CPOP 30 no es solo un aniversario. Es una vuelta al origen. En un momento donde muchos festivales han perdido su esencia, nosotros seguimos creyendo en la cercanía, en las bandas con personalidad y en los conciertos que se recuerdan durante años.</p>
-            <p class="ncard__text">Queremos recuperar aquella sensación de descubrir música bajo las estrellas, compartir canciones entre amigos y sentir que formas parte de algo especial. Una historia que empezó hace tres décadas y que hoy, más viva que nunca, vuelve al baluarte.</p>
+            <p class="ncard__text">Queremos recuperar aquella sensación de descubrir música bajo las estrellas, compartir canciones entre amigos y sentir que formas parte de algo especial. Una historia que empezó hace tres décadas y que hoy, más viva que nunca, vuelve al Paseo de las Laderas.</p>
 
             <div class="ncard__footer">
               <a href="#" class="ncard__btn" data-lightbox="IMG/cpop_baluarte.png">
@@ -665,24 +613,35 @@
             <span class="ncard__badge ncard__badge--transport">Transporte</span>
             <div class="ncard__meta">
               <span class="ncard__meta-item">
-                <span class="ncard__meta-icon">🚌</span> Desde Badajoz y alrededores
+                <span class="ncard__meta-icon">🚌</span> Badajoz ↔ Alburquerque
               </span>
               <span class="ncard__meta-item">
-                <span class="ncard__meta-icon">🕒</span> Horarios próximamente
+                <span class="ncard__meta-icon">🕒</span> Días 21 y 22 de agosto
               </span>
             </div>
           </div>
 
           <div class="ncard__body">
             <p class="ncard__category">Servicios · Transporte</p>
-            <h3 class="ncard__title">Buses oficiales al CPOP 30 Aniversario</h3>
-            <p class="ncard__lead">Pronto tendremos todos los horarios y puntos de recogida de los buses oficiales.</p>
-            <p class="ncard__text">Estamos trabajando para ofrecerte la mejor opción de transporte colectivo hasta el festival. Los buses oficiales saldrán desde distintos puntos de la provincia y estarán disponibles los tres días del evento.</p>
-            <p class="ncard__text">En cuanto tengamos los horarios definitivos y los precios confirmados, los publicaremos aquí y en nuestras redes sociales. ¡Estate atento!</p>
+            <h3 class="ncard__title">Autobuses Badajoz ↔ Alburquerque</h3>
+            <p class="ncard__lead">Autocares Ñuco ofrecerá servicio especial ambos días de festival.</p>
+
+            <div class="ncard__steps">
+              <div class="ncard__step">
+                <div class="ncard__step-num">📍</div>
+                <p class="ncard__step-txt"><strong>Salida desde Badajoz</strong><br>Tubasa / Traseras de Simago — 19:00h</p>
+              </div>
+              <div class="ncard__step">
+                <div class="ncard__step-num">📍</div>
+                <p class="ncard__step-txt"><strong>Regreso desde Alburquerque</strong><br>Estación de Autobuses — 04:30h</p>
+              </div>
+            </div>
+
+            <p class="ncard__text">⛺ Además, el camping municipal y el área de autocaravanas estarán disponibles de forma <strong>gratuita y sin reserva previa</strong> junto a la piscina municipal de Alburquerque.</p>
 
             <div class="ncard__footer">
-              <a href="#" class="ncard__btn" data-lightbox="IMG/buses_oficiales.png">
-                VER MÁS
+              <a href="https://forms.gle/AHYH39pro9aBFRCh9" target="_blank" rel="noopener" class="ncard__btn">
+                RESERVAR PLAZA
                 <span class="ncard__btn-arrow">→</span>
               </a>
               <span class="ncard__share">
@@ -754,6 +713,49 @@
       document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') closeLb();
       });
+    })();
+  </script>
+
+  <script>
+    document.querySelectorAll('.ncard__share').forEach(function(btn) {
+      btn.style.cursor = 'pointer';
+      btn.addEventListener('click', function() {
+        var card  = btn.closest('article');
+        var title = card ? (card.querySelector('.ncard__title')?.textContent.trim() || 'CPOP Alburquerque') : 'CPOP Alburquerque';
+        var url   = window.location.href;
+        if (navigator.share) {
+          navigator.share({ title: title, text: 'CPOP Alburquerque 30 Aniversario', url: url });
+        } else {
+          navigator.clipboard.writeText(url).then(function() {
+            var orig = btn.innerHTML;
+            btn.textContent = '¡Enlace copiado!';
+            setTimeout(function() { btn.innerHTML = orig; }, 2000);
+          });
+        }
+      });
+    });
+  </script>
+
+  <script>
+    (function(){
+      const toggle = document.getElementById('navToggle');
+      const nav = document.getElementById('mainNav');
+      const header = document.getElementById('header');
+      toggle.addEventListener('click', function(){
+        const open = toggle.classList.toggle('open');
+        nav.classList.toggle('open', open);
+        toggle.setAttribute('aria-expanded', open);
+      });
+      nav.querySelectorAll('.nav__link').forEach(function(link){
+        link.addEventListener('click', function(){
+          toggle.classList.remove('open');
+          nav.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+      window.addEventListener('scroll', function(){
+        header.classList.toggle('scrolled', window.scrollY > 20);
+      }, { passive: true });
     })();
   </script>
 
