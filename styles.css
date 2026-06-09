@@ -743,9 +743,10 @@ ul { list-style: none; }
 
 /* Organizadores – cuadrícula de logos */
 .sponsors {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px 16px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
   align-items: center;
 }
 .sponsor {
@@ -755,6 +756,9 @@ ul { list-style: none; }
   background: rgba(255,255,255,.08);
   border-radius: 8px;
   padding: 10px 12px;
+  width: 100px;
+  height: 70px;
+  flex-shrink: 0;
   transition: background var(--transition), transform var(--transition);
 }
 .sponsor:hover {
@@ -762,14 +766,21 @@ ul { list-style: none; }
   transform: translateY(-2px);
 }
 .sponsor img {
-  max-height: 38px;
+  max-height: 50px;
   width: auto;
-  max-width: 100%;
+  max-width: 80px;
   object-fit: contain;
-  /* blanquear logos para que combinen con el fondo oscuro */
   filter: brightness(0) invert(1);
   opacity: 0.85;
   transition: opacity var(--transition);
+}
+.sponsor--sm img {
+  max-height: 22px;
+  max-width: 70px;
+}
+.sponsor--lg img {
+  max-height: 50px;
+  max-width: 80px;
 }
 .sponsor:hover img { opacity: 1; }
 
@@ -1305,7 +1316,8 @@ ul { list-style: none; }
   padding: 0;
   line-height: 1;
 }
-.sponsors-bar__arrow:disabled { opacity: .25; cursor: default; }
+.sponsors-bar__item--boost img { height: 59px !important; }
+.sponsors-bar__item--boost.sponsors-bar__item--main img { height: 85px !important; }
 .sponsors-bar__arrow:not(:disabled):hover { opacity: .75; }
 
 .sponsors-bar__logos {

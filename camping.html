@@ -45,7 +45,7 @@
     /* ── HERO ── */
     .camping-hero {
       position: relative;
-      min-height: 380px;
+      min-height: unset;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
@@ -68,7 +68,7 @@
       z-index: 1;
       width: min(100%, var(--container));
       margin-inline: auto;
-      padding: 0 24px 32px;
+      padding: 24px 24px 20px;
     }
     .camping-hero__badge {
       display: inline-flex;
@@ -341,9 +341,7 @@
     <div class="camping-hero__bg"></div>
     <div class="camping-hero__overlay"></div>
     <div class="camping-hero__content">
-      <span class="camping-hero__badge">⛺ Camping gratuito</span>
       <h1 class="camping-hero__title">¿Se te ocurre<br>un plan mejor?</h1>
-      <p class="camping-hero__sub">Disfruta de una experiencia única en un entorno natural privilegiado. <strong style="color:var(--yellow);">Acampa gratis</strong>, refréscate en la piscina municipal y vive el festival al máximo durante todo el fin de semana.</p>
     </div>
   </section>
 
