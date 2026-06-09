@@ -1316,8 +1316,8 @@ ul { list-style: none; }
   padding: 0;
   line-height: 1;
 }
-.sponsors-bar__item--boost img { height: 59px !important; }
-.sponsors-bar__item--boost.sponsors-bar__item--main img { height: 85px !important; }
+.sponsors-bar__item--boost img { height: 80px !important; }
+.sponsors-bar__item--boost.sponsors-bar__item--main img { height: 100px !important; }
 .sponsors-bar__arrow:not(:disabled):hover { opacity: .75; }
 
 .sponsors-bar__logos {
