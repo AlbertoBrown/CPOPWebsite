@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Política de Menores | CPOP Albuquerque</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --navy:#0b1a3b;
+    --blue:#1a3a8f;
+    --yellow:#f5c518;
+    --light:#eef2fb;
+    --text:#3a4a70;
+    --white:#ffffff;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Nunito',sans-serif;
+    background:var(--light);
+    color:var(--navy);
+    line-height:1.7;
+}
+
+.container{
+    width:100%;
+    max-width:1100px;
+    margin:auto;
+    padding:0 24px;
+}
+
+/* HERO */
+
+.legal-hero{
+    background:linear-gradient(135deg,var(--navy),var(--blue));
+    color:#fff;
+    text-align:center;
+    padding:120px 0 90px;
+    position:relative;
+    overflow:hidden;
+}
+
+.legal-hero::before{
+    content:"";
+    position:absolute;
+    width:400px;
+    height:400px;
+    background:rgba(255,255,255,.04);
+    border-radius:50%;
+    top:-200px;
+    right:-100px;
+}
+
+.legal-badge{
+    display:inline-block;
+    background:var(--yellow);
+    color:var(--navy);
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    padding:10px 20px;
+    border-radius:999px;
+    margin-bottom:24px;
+}
+
+.legal-hero h1{
+    font-size:clamp(2.4rem,5vw,4.5rem);
+    font-weight:900;
+    margin-bottom:18px;
+}
+
+.legal-hero p{
+    max-width:700px;
+    margin:auto;
+    color:rgba(255,255,255,.85);
+    font-size:1.05rem;
+}
+
+/* CONTENT */
+
+.legal-content{
+    padding:80px 0;
+}
+
+.legal-card{
+    background:var(--white);
+    border-radius:20px;
+    padding:35px;
+    margin-bottom:24px;
+    box-shadow:0 8px 30px rgba(11,26,59,.08);
+    transition:.3s ease;
+}
+
+.legal-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 14px 40px rgba(11,26,59,.12);
+}
+
+.legal-card h2{
+    font-size:1.45rem;
+    font-weight:900;
+    color:var(--navy);
+    margin-bottom:20px;
+    padding-bottom:12px;
+    position:relative;
+}
+
+.legal-card h2::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:60px;
+    height:4px;
+    background:var(--yellow);
+    border-radius:999px;
+}
+
+.legal-card p{
+    color:var(--text);
+    margin-bottom:12px;
+}
+
+.legal-card p:last-child{
+    margin-bottom:0;
+}
+
+.legal-card--warning{
+    border-left:6px solid var(--yellow);
+}
+
+.legal-note{
+    margin-top:35px;
+    background:var(--navy);
+    color:#fff;
+    padding:24px 30px;
+    border-radius:18px;
+    text-align:center;
+    font-weight:600;
+    box-shadow:0 10px 30px rgba(11,26,59,.15);
+}
+
+/* FOOTER */
+
+.legal-footer{
+    text-align:center;
+    padding:40px 20px;
+    color:#6b7aa3;
+    font-size:.9rem;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .legal-hero{
+        padding:100px 0 70px;
+    }
+
+    .legal-card{
+        padding:25px;
+    }
+
+    .legal-card h2{
+        font-size:1.25rem;
+    }
+
+}
+</style>
+</head>
+<body>
+
+<section class="legal-hero">
+    <div class="container">
+        <span class="legal-badge">Información importante</span>
+
+        <h1>Política de Menores</h1>
+
+        <p>
+            Consulta las condiciones de acceso y permanencia de menores de edad
+            durante la celebración del CPOP Albuquerque 30 Aniversario.
+        </p>
+    </div>
+</section>
+
+<section class="legal-content">
+    <div class="container">
+
+        <div class="legal-card">
+            <h2>Entradas y acceso</h2>
+
+            <p>
+                Los menores de <strong>13 años</strong> acceden gratuitamente al festival.
+                A partir de los <strong>13 años</strong> será necesario adquirir una entrada
+                para acceder al recinto.
+            </p>
+
+            <p>
+                Será imprescindible presentar <strong>DNI físico o pasaporte</strong>
+                para acreditar la edad en el acceso.
+            </p>
+        </div>
+
+        <div class="legal-card">
+            <h2>Acompañamiento de menores</h2>
+
+            <p>
+                Los menores de <strong>16 años</strong> deberán acceder y permanecer
+                en el recinto acompañados en todo momento por su madre, padre,
+                tutor o tutora legal.
+            </p>
+
+            <p>
+                No se permitirá el acceso acompañados por otros adultos que no
+                ostenten la condición de tutor legal.
+            </p>
+        </div>
+
+        <div class="legal-card">
+            <h2>Identificación de menores</h2>
+
+            <p>
+                Los menores de 16 años serán identificados mediante una
+                <strong>pulsera especial</strong> antes de acceder al recinto
+                de conciertos.
+            </p>
+        </div>
+
+        <div class="legal-card legal-card--warning">
+            <h2>Consumo de alcohol</h2>
+
+            <p>
+                Queda terminantemente prohibida la venta, suministro y consumo
+                de bebidas alcohólicas a menores de <strong>18 años</strong>,
+                de acuerdo con la legislación vigente.
+            </p>
+        </div>
+
+        <div class="legal-note">
+            La organización podrá solicitar documentación acreditativa en cualquier momento y se reserva el derecho de admisión o permanencia cuando no se cumplan las condiciones establecidas en esta política.
+        </div>
+
+    </div>
+</section>
+
+<footer class="legal-footer">
+    © 2026 CPOP Albuquerque. Todos los derechos reservados.
+</footer>
+
+</body>
+</html>
