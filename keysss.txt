@@ -3,10 +3,4 @@ USUARIO: CPOP2026
 Contraseña: Contempop2026@
 IONOS ID Cliente: 21471472
 email: contempopranea2009@gmail.com
-
-FileZilla
-Contraseña: 9l/K&^;37q05
-Servidor / Host
-home610496607.1and1-data.host
-Puerto 22
-Nombre de usuario u83758503
+IONOS

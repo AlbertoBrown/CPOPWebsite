@@ -1228,6 +1228,7 @@ ul { list-style: none; }
 }
 .sponsors-bar__item--boost img { height: 60px; }
 .sponsors-bar__item--boost.sponsors-bar__item--main img { height: 90px; }
+.sponsors-bar__item--amstel img { height: 32px; width: auto; max-width: 120px; }
 .sponsors-bar__arrow:not(:disabled):hover { opacity: .75; }
 
 .sponsors-bar__logos {
@@ -1395,11 +1396,11 @@ ul { list-style: none; }
   z-index: 1;
 }
 
-/* Recortes de transporte.png */
+  /* Recortes de transporte.webp */
 .transport__illus {
   width: 220px;
   height: 140px;
-  background-image: url('IMG/transporte.png');
+  background-image: url('IMG/transporte.webp');
   background-repeat: no-repeat;
   background-size: 700px auto;
   margin: 0 auto 2px;
