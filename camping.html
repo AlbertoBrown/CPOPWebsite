@@ -189,6 +189,7 @@
       padding-bottom: 0;
     }
     .camping-map__header {
+      position: relative;
       max-width: var(--container);
       margin: 0 auto;
       padding: 44px 24px 30px;
@@ -197,6 +198,8 @@
       justify-content: space-between;
       gap: 20px;
     }
+    .camping-map__doodle { position: absolute; top: -6px; right: 60px; pointer-events: none; }
+    .camping-map__doodle img { display: block; height: auto; }
     .camping-map__header-title {
       font-size: clamp(1.4rem, 3vw, 2rem);
       font-weight: 900;
@@ -369,6 +372,7 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .camp-doodle { display: none; }
+      .camping-map__doodle { display: none; }
       .camp-hero { grid-template-columns: 1fr; gap: 24px; padding: 32px 20px; text-align: center; }
       .camp-hero__text { display: flex; flex-direction: column; align-items: center; }
       .camp-hero .aloj-dash { justify-content: center; }
@@ -496,6 +500,9 @@
 
   <section class="camping-map" id="ubicacion">
     <div class="camping-map__header">
+      <span class="camping-map__doodle" aria-hidden="true">
+        <img src="IMG/cpop-arboles.webp" alt="" width="52" />
+      </span>
       <div>
         <h2 class="camping-map__header-title">Cómo llegar al camping</h2>
         <p class="camping-map__header-sub">Piscina Municipal de Alburquerque, Badajoz</p>
