@@ -71,7 +71,7 @@
       overflow: hidden;
       text-decoration: none;
       background: #fff;
-      transition: transform .25s, box-shadow .25s;
+      transition: transform .25s, box-shadow .25s, opacity .5s ease;
     }
     .aloj-pick:hover { transform: translateY(-4px); box-shadow: 0 14px 34px rgba(11,26,59,.18); }
     .aloj-pick__top { position: relative; padding: 28px 30px 24px; }
@@ -121,23 +121,22 @@
     }
     .aloj-pick__text a { color: var(--navy); text-decoration: underline; font-weight: 800; }
     .aloj-pick__cta {
-            display: inline-flex;
-                  align-items: center;
-                        gap: 6px;
-                              font-size: .82rem;
-                                    font-weight: 900;
-                                          letter-spacing: .02em;
-                                                text-transform: uppercase;
-                                                      color: var(--navy);
-                                                            background: #fff;
-                                                                  border: 2px solid var(--navy);
-                                                                        padding: 10px 22px;
-                                                                              border-radius: 50px;
-                                                                                    text-decoration: none;
-                                                                                          transition: background .2s, color .2s;
-                                                                                              }
-                                                                                                  .aloj-pick__cta:hover { background: var(--navy); color: #fff; }
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: .82rem;
+      font-weight: 900;
+      letter-spacing: .02em;
+      text-transform: uppercase;
+      color: var(--navy);
+      background: #fff;
+      border: 2px solid var(--navy);
+      padding: 10px 22px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: background .2s, color .2s;
     }
+    .aloj-pick__cta:hover { background: var(--navy); color: #fff; }
     .aloj-pick__actions { display: flex; flex-wrap: wrap; gap: 10px; }
     .aloj-pick__photo {
       display: block;
