@@ -840,7 +840,7 @@ ul { list-style: none; }
 
   /* Banner entradas */
   .tickets__inner { flex-direction: column; text-align: center; }
-  .tickets__img-wrap { max-width: 220px; margin-inline: auto; }
+  .tickets__img-wrap { display: none; }
 
   /* Noticias */
   .news__grid { grid-template-columns: 1fr; }
@@ -1263,7 +1263,7 @@ ul { list-style: none; }
   gap: 0;
 }
 .sponsors-bar__arrow {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   width: 28px;
@@ -1292,12 +1292,10 @@ ul { list-style: none; }
   justify-content: center;
   flex: 1;
   min-width: 0;
-  gap: 8px;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  scrollbar-width: none;
+  gap: 10px 8px;
+  flex-wrap: wrap;
+  row-gap: 12px;
 }
-.sponsors-bar__logos::-webkit-scrollbar { display: none; }
 
 .sponsors-bar__item {
   display: flex;
@@ -1351,14 +1349,27 @@ ul { list-style: none; }
   .sponsors-bar__inner   { flex-direction: column; gap: 8px; }
   .sponsors-bar__label   { border-right: none; padding-right: 0; border-bottom: 1px solid rgba(255,255,255,.12); padding-bottom: 6px; width: 100%; text-align: center; }
   .sponsors-bar__scroll-wrap { width: 100%; }
-  .sponsors-bar__logos   { justify-content: flex-start; width: 100%; gap: 4px; }
-  .sponsors-bar__item    { padding: 4px 8px; flex-shrink: 0; }
+  .sponsors-bar__arrow { display: flex; }
+  .sponsors-bar__logos {
+    justify-content: flex-start;
+    width: 100%;
+    gap: 4px;
+    padding-inline: 10px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 14px, #000 calc(100% - 14px), transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0, #000 14px, #000 calc(100% - 14px), transparent 100%);
+  }
+  .sponsors-bar__logos::-webkit-scrollbar { display: none; }
+  .sponsors-bar__item    { padding: 4px 8px; flex-shrink: 0; scroll-snap-align: center; }
   .sponsors-bar__item img { height: 40px; }
   .sponsors-bar__item--main img { height: 52px; }
   .sponsors-bar__item--xl img   { height: 66px; }
   .sponsors-bar__item--xxl img  { height: 76px; }
   .sponsors-bar__item--sm img   { height: 18px; }
-  .sponsors-bar__arrow   { display: flex; }
 }
 @media (max-width: 480px) {
   .sponsors-bar__logos   { gap: 2px; }

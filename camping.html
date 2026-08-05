@@ -103,41 +103,6 @@
     .camp-doodle--star2 { right: -46px; top: 60px; }
     .camp-doodle--fire { right: -6px; bottom: 6px; }
 
-    /* ── TICKER CAMPING ── */
-    .camp-ticker {
-      width: 100%;
-      background: var(--navy);
-      overflow: hidden;
-      height: 58px;
-      display: flex;
-      align-items: center;
-    }
-    .camp-ticker__track {
-      display: flex;
-      align-items: center;
-      white-space: nowrap;
-      animation: camping-scroll 28s linear infinite;
-      will-change: transform;
-    }
-    .camp-ticker__track:hover { animation-play-state: paused; }
-    @keyframes camping-scroll {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-    .camp-ticker__item {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 0 24px;
-      font-size: .92rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: .04em;
-      color: #fff;
-      white-space: nowrap;
-    }
-    .camp-ticker__sep { color: var(--yellow); font-size: 1rem; }
-
     /* ── TODO LO QUE NECESITAS ── */
     .camp-feat {
       max-width: var(--container);
@@ -148,6 +113,8 @@
       gap: 40px;
       align-items: start;
     }
+    .camp-feat__text-col { order: 2; }
+    .camp-cards { order: 1; }
     .camp-feat__title {
       font-size: clamp(1.7rem, 3vw, 2.2rem);
       font-weight: 900;
@@ -409,8 +376,6 @@
     }
     @media (max-width: 700px) {
       .topbar__title { display: none; }
-      .camp-ticker { height: 46px; }
-      .camp-ticker__item { font-size: .74rem; padding: 0 16px; gap: 7px; }
       .camping-map__header { flex-direction: column; align-items: center; text-align: center; padding: 28px 20px 24px; gap: 16px; }
       .camping-map__header-btn { align-self: center; }
       .camping-map__grid { grid-template-columns: 1fr; height: auto; padding: 0 20px; gap: 16px; }
@@ -490,37 +455,9 @@
     </div>
   </section>
 
-  <!-- Banda informativa ticker -->
-  <div class="camp-ticker" aria-label="Servicios del camping">
-    <div class="camp-ticker__track">
-      <!-- Set 1 -->
-      <span class="camp-ticker__item">Camping Gratuito</span>
-      <span class="camp-ticker__sep">✦</span>
-      <span class="camp-ticker__item">Área de Autocaravanas</span>
-      <span class="camp-ticker__sep">✦</span>
-      <span class="camp-ticker__item">Piscina Municipal</span>
-      <span class="camp-ticker__sep">✦</span>
-      <span class="camp-ticker__item">A 10 Min del Festival</span>
-      <span class="camp-ticker__sep">✦</span>
-      <span class="camp-ticker__item">Aseos y Duchas</span>
-      <span class="camp-ticker__sep">✦</span>
-      <!-- Set 2 (copia para bucle infinito) -->
-      <span class="camp-ticker__item">Camping Gratuito</span>
-      <span class="camp-ticker__sep">✦</span>
-      <span class="camp-ticker__item">Área de Autocaravanas</span>
-      <span class="camp-ticker__sep">✦</span>
-      <span class="camp-ticker__item">Piscina Municipal</span>
-      <span class="camp-ticker__sep">✦</span>
-      <span class="camp-ticker__item">A 10 Min del Festival</span>
-      <span class="camp-ticker__sep">✦</span>
-      <span class="camp-ticker__item">Aseos y Duchas</span>
-      <span class="camp-ticker__sep">✦</span>
-    </div>
-  </div>
-
   <!-- Todo lo que necesitas -->
   <section class="camp-feat">
-    <div>
+    <div class="camp-feat__text-col">
       <h2 class="camp-feat__title"><span class="l1">Todo lo que necesitas,</span><span class="l2">gratis.</span></h2>
       <div class="aloj-dash" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
       <p class="camp-feat__text">El camping está situado junto a la piscina municipal de Alburquerque, en un entorno verde y tranquilo. Dispone de zona para tiendas de campaña y área de autocaravanas, <strong>totalmente gratuito</strong> durante los días del CPOP 30 Aniversario. Las instalaciones cuentan con aseos y duchas. Sin reserva previa — llega, instala y disfruta.</p>
