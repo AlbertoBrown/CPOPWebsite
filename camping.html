@@ -136,7 +136,8 @@
     .camp-feat__text strong { color: #e03030; }
     .camp-cards {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      min-width: 0;
       gap: 18px;
     }
     .camp-card {
@@ -373,7 +374,7 @@
       .camp-hero__sub { max-width: 420px; }
       .camp-feat { grid-template-columns: 1fr; padding: 40px 20px 48px; gap: 28px; text-align: center; }
       .camp-feat .aloj-dash { justify-content: center; }
-      .camp-cards { grid-template-columns: 1fr 1fr; }
+      .camp-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media (max-width: 700px) {
       .topbar__title { display: none; }
