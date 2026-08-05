@@ -661,7 +661,7 @@ ul { list-style: none; }
   margin-bottom: 20px;
 }
 .footer__col-title svg { width: 16px; height: 16px; flex-shrink: 0; }
-.footer__col--legal .footer__col-title svg { color: #3ab54a; }
+.footer__col--legal .footer__col-title svg { color: #fff; }
 
 .footer__links li {
   border-bottom: 1px solid rgba(255,255,255,.08);

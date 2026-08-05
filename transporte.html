@@ -48,6 +48,8 @@
       letter-spacing: .04em;
       line-height: 1.05;
       margin-bottom: 14px;
+      -webkit-text-stroke: 2px #000;
+      paint-order: stroke fill;
     }
     .transport-hero__sub {
       font-size: 1rem;
@@ -78,6 +80,11 @@
       overflow: hidden;
       box-shadow: var(--shadow);
       margin-bottom: 32px;
+      transition: transform .35s ease, box-shadow .35s ease;
+    }
+    .tband:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 44px rgba(11,26,59,.2);
     }
     .tband--reverse { direction: rtl; }
     .tband--reverse > * { direction: ltr; }
@@ -1034,6 +1041,87 @@
     </div>
     <a href="camping.html" class="camping-cta__btn">⛺ Ver info del camping →</a>
   </div>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer" id="contacto">
+
+    <div class="footer__skyline" aria-hidden="true"></div>
+
+    <div class="footer__inner container">
+
+      <div class="footer__brand">
+        <div class="logo-block logo-block--white">
+          <span class="logo-cpop">
+            <span class="lc lc--c">C</span><span class="lc lc--p1">P</span><span class="lc lc--o">O</span><span class="lc lc--p2">P</span>
+          </span>
+          <span class="logo-sub">ALBURQUERQUE</span>
+          <span class="logo-tagline">UNA CELEBRACIÓN DEL POP Y LA AMISTAD</span>
+        </div>
+        <p class="footer__desc">CPOP Alburquerque es más que un festival: es un punto de encuentro para la música, la cultura y la amistad.</p>
+        <nav class="social-nav" aria-label="Redes sociales">
+          <a href="#" class="social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.235 2.686.235v2.97h-1.513c-1.491 0-1.956.93-1.956 1.887v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Twitter / X">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Spotify">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+          </a>
+        </nav>
+      </div>
+
+      <!-- Columna Legal -->
+      <div class="footer__col footer__col--legal">
+        <h4 class="footer__col-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/></svg>
+          LEGAL
+        </h4>
+        <ul class="footer__links">
+          <li><a href="aviso_legal.html">Aviso legal <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a></li>
+          <li><a href="menores.html">Política de menores <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a></li>
+          <li><a href="privacidad.html">Política de privacidad <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a></li>
+          <li><a href="cookies.html">Política de cookies <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer__sponsors">
+      <div class="footer__sponsors-inner container">
+        <p class="footer__sponsors-label">PATROCINADORES</p>
+        <div class="sponsors">
+          <a href="#" class="sponsor"><img src="IMG/logo_diputacion.webp"   alt="Diputación de Badajoz" /></a>
+          <a href="#" class="sponsor"><img src="IMG/logo_ayuntamiento.webp" alt="Ayuntamiento de Albuquerque" /></a>
+          <a href="#" class="sponsor"><img src="IMG/contempopranea.webp"    alt="Contempopranea" /></a>
+          <a href="#" class="sponsor"><img src="IMG/caja_rural.webp"        alt="Caja Rural de Extremadura" /></a>
+          <a href="#" class="sponsor sponsor--sm"><img src="IMG/logo_muzikalia.webp" alt="Muzikalia" /></a>
+          <a href="#" class="sponsor"><img src="IMG/logo_lamerienda.webp"   alt="La Merienda" /></a>
+          <a href="#" class="sponsor"><img src="IMG/energia_extremeña.webp" alt="Energía Extremeña" /></a>
+          <a href="#" class="sponsor"><img src="IMG/amstel.webp"            alt="Amstel" /></a>
+          <a href="#" class="sponsor"><img src="IMG/oj_maven.webp"          alt="OJ Maven" /></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <div class="footer__bottom-inner container">
+        <p>© 2026 CPOP Alburquerque. Todos los derechos reservados.</p>
+        <p class="footer__bottom-heart"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-6.7-4.35-9.3-8.1C1 10.1 1.6 6.6 4.6 5.1 7 3.9 9.6 4.8 12 7.3 14.4 4.8 17 3.9 19.4 5.1c3 1.5 3.6 5 1.9 7.8C18.7 16.65 12 21 12 21z"/></svg> Hecho con pasión en Alburquerque</p>
+        <p>Diseño web por <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener" class="footer__credit">Alberto Moreno Sánchez</a></p>
+      </div>
+    </div>
+
+  </footer>
+
   <script src="script.js"></script>
 </body>
 </html>

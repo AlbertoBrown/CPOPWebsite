@@ -95,10 +95,10 @@
     }
     .camp-hero__slide.is-active { opacity: 1; }
     .camp-doodle { position: absolute; pointer-events: none; opacity: .9; }
+    .camp-doodle img { display: block; height: auto; }
     .camp-doodle--moon { top: -10px; left: -6px; }
     .camp-doodle--star1 { top: 30px; left: 62px; transform: rotate(-8deg); }
-    .camp-doodle--tent { left: -40px; bottom: 30px; }
-    .camp-doodle--grass1 { left: 96px; bottom: 6px; }
+    .camp-doodle--tent { left: -90px; bottom: 30px; }
     .camp-doodle--trees { right: -30px; top: -6px; }
     .camp-doodle--star2 { right: -46px; top: 60px; }
     .camp-doodle--fire { right: -6px; bottom: 6px; }
@@ -398,18 +398,21 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .camp-doodle { display: none; }
-      .camp-hero { grid-template-columns: 1fr; gap: 24px; padding: 32px 20px; }
+      .camp-hero { grid-template-columns: 1fr; gap: 24px; padding: 32px 20px; text-align: center; }
+      .camp-hero__text { display: flex; flex-direction: column; align-items: center; }
+      .camp-hero .aloj-dash { justify-content: center; }
       .camp-hero__photo { height: 260px; border-radius: 120px 120px 24px 24px; }
-      .camp-hero__sub { max-width: none; }
-      .camp-feat { grid-template-columns: 1fr; padding: 40px 20px 48px; gap: 28px; }
+      .camp-hero__sub { max-width: 420px; }
+      .camp-feat { grid-template-columns: 1fr; padding: 40px 20px 48px; gap: 28px; text-align: center; }
+      .camp-feat .aloj-dash { justify-content: center; }
       .camp-cards { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 700px) {
       .topbar__title { display: none; }
       .camp-ticker { height: 46px; }
       .camp-ticker__item { font-size: .74rem; padding: 0 16px; gap: 7px; }
-      .camping-map__header { flex-direction: column; align-items: flex-start; padding: 28px 20px 24px; gap: 16px; }
-      .camping-map__header-btn { align-self: flex-start; }
+      .camping-map__header { flex-direction: column; align-items: center; text-align: center; padding: 28px 20px 24px; gap: 16px; }
+      .camping-map__header-btn { align-self: center; }
       .camping-map__grid { grid-template-columns: 1fr; height: auto; padding: 0 20px; gap: 16px; }
       .camping-map__zone-img { height: 260px; }
       .camping-map__iframe { height: 240px; }
@@ -460,22 +463,19 @@
     </div>
     <div class="camp-hero__photo-wrap">
       <span class="camp-doodle camp-doodle--moon" aria-hidden="true">
-        <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="#0b1a3b" stroke-width="1.6" stroke-linecap="round"><path d="M15 3a9 9 0 1 0 6 15.5A9 9 0 0 1 15 3z"/></svg>
+        <img src="IMG/cpop-luna.webp" alt="" width="34" height="34" />
       </span>
       <span class="camp-doodle camp-doodle--star1" aria-hidden="true">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="#f5c518"><path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8z"/></svg>
+        <img src="IMG/cpop-estrella.webp" alt="" width="16" height="16" />
       </span>
       <span class="camp-doodle camp-doodle--tent" aria-hidden="true">
-        <svg viewBox="0 0 48 40" width="64" height="52" fill="none" stroke="#0b1a3b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M24 4 L4 36 M24 4 L44 36 M12 36 H36 M24 4 V36"/></svg>
-      </span>
-      <span class="camp-doodle camp-doodle--grass1" aria-hidden="true">
-        <svg viewBox="0 0 20 12" width="26" height="16" fill="none" stroke="#3ab54a" stroke-width="1.6" stroke-linecap="round"><path d="M2 12 Q3 4 5 12 M8 12 Q9 2 11 12 M14 12 Q15 5 17 12"/></svg>
+        <img src="IMG/cpop-tienda-camping.webp" alt="" width="86" />
       </span>
       <span class="camp-doodle camp-doodle--trees" aria-hidden="true">
-        <svg viewBox="0 0 24 40" width="30" height="48" fill="none" stroke="#3ab54a" stroke-width="1.6" stroke-linejoin="round"><path d="M12 2 L4 16 H20 Z M12 10 L2 26 H22 Z"/><line x1="12" y1="26" x2="12" y2="36"/></svg>
+        <img src="IMG/cpop-arboles.webp" alt="" width="46" />
       </span>
       <span class="camp-doodle camp-doodle--star2" aria-hidden="true">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="#f5c518"><path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8z"/></svg>
+        <img src="IMG/cpop-estrella.webp" alt="" width="18" height="18" />
       </span>
       <span class="camp-doodle camp-doodle--fire" aria-hidden="true">
         <svg viewBox="0 0 32 32" width="38" height="38" fill="none" stroke="#e03030" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 6c3 4 1 6 3 9 2-1 3-4 2-6 3 3 4 8 1 12-3 3-9 3-11-1-1-2 0-4 1-6 1 2 2 2 2 0-1-2-1-3 2-8z"/><line x1="6" y1="26" x2="26" y2="26"/></svg>
@@ -682,6 +682,7 @@
           <a href="#" class="sponsor"><img src="IMG/logo_lamerienda.webp"   alt="La Merienda" /></a>
           <a href="#" class="sponsor"><img src="IMG/energia_extremeña.webp" alt="Energía Extremeña" /></a>
           <a href="#" class="sponsor"><img src="IMG/amstel.webp"            alt="Amstel" /></a>
+          <a href="#" class="sponsor"><img src="IMG/oj_maven.webp"          alt="OJ Maven" /></a>
         </div>
       </div>
     </div>
@@ -690,7 +691,7 @@
       <div class="footer__bottom-inner container">
         <p>© 2026 CPOP Alburquerque. Todos los derechos reservados.</p>
         <p class="footer__bottom-heart"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-6.7-4.35-9.3-8.1C1 10.1 1.6 6.6 4.6 5.1 7 3.9 9.6 4.8 12 7.3 14.4 4.8 17 3.9 19.4 5.1c3 1.5 3.6 5 1.9 7.8C18.7 16.65 12 21 12 21z"/></svg> Hecho con pasión en Alburquerque</p>
-        <p>Diseño web por <span class="footer__credit">CPOP</span></p>
+        <p>Diseño web por <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener" class="footer__credit">Alberto Moreno Sánchez</a></p>
       </div>
     </div>
 

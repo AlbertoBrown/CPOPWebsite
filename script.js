@@ -162,7 +162,10 @@ function initStars() {
 function initScrollAnimations() {
   /* Seleccionar elementos a animar */
   const targets = document.querySelectorAll(
-    '.feature-card, .news-card, .hero__content, .hero__img-wrap, .tickets__content, .tickets__img-wrap, .countdown__unit'
+    '.feature-card, .news-card, .hero__content, .hero__img-wrap, .tickets__content, .tickets__img-wrap, .countdown__unit, ' +
+    '.transport-hero__content, .tband, .camping-cta__text, .camping-cta__btn, ' +
+    '.camp-hero__text, .camp-hero__photo-wrap, .camp-card, .camping-map__panel, ' +
+    '.aloj-pick, .aloj-picker__title, .aloj-top, .aloj-card'
   );
 
   targets.forEach((el, i) => {
