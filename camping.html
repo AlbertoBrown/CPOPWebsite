@@ -11,284 +11,235 @@
 
   <style>
     body {
-      background: linear-gradient(160deg, #0b1a3b 0%, #132248 50%, #1a3a7c 100%);
-      background-attachment: fixed;
-      color: var(--white);
-      min-height: 100vh;
+      background: #f6f1e2;
+      color: var(--navy);
       padding-top: 66px;
     }
 
-    /* ── CAMPING SECTIONS (full-width) ── */
+    /* ── DASH DIVIDER (reutilizado) ── */
+    .aloj-dash { display: flex; gap: 6px; }
+    .aloj-dash span { width: 26px; height: 4px; border-radius: 2px; }
+    .aloj-dash span:nth-child(1) { background: #e03030; }
+    .aloj-dash span:nth-child(2) { background: #1dc0c0; }
+    .aloj-dash span:nth-child(3) { background: #f5c518; }
+    .aloj-dash span:nth-child(4) { background: #3ab54a; }
 
     /* ── HERO ── */
-    .camping-hero {
+    .camp-hero {
       position: relative;
-      min-height: unset;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 48px 24px 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 40px;
     }
-    .camping-hero__bg {
-      position: absolute;
-      inset: 0;
-      background-image: url('IMG/piscina_1.webp');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
+    .camp-hero__label {
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: #e03030;
+      margin-bottom: 14px;
     }
-    .camping-hero__overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(8,18,42,.98) 0%, rgba(8,18,42,.75) 50%, rgba(8,18,42,.5) 100%);
+    .camp-hero__title {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 900;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: .01em;
+      line-height: 1.05;
+      margin-bottom: 18px;
     }
-    .camping-hero__content {
-      position: relative;
-      z-index: 1;
-      width: min(100%, var(--container));
-      margin-inline: auto;
-      padding: 50px 40px 20px;
+    .camp-hero__sub {
+      font-size: 1rem;
+      font-weight: 700;
+      color: rgba(11,26,59,.72);
+      line-height: 1.6;
+      max-width: 440px;
+      margin: 18px 0 28px;
     }
-    .camping-hero__badge {
+    .camp-hero__cta {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      background: var(--yellow);
-      color: var(--navy);
-      font-size: .7rem;
-      font-weight: 900;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      padding: 5px 14px;
-      border-radius: 50px;
-      margin-bottom: 20px;
-    }
-    .camping-hero__title {
-      font-size: clamp(2rem, 5vw, 3.6rem);
-      font-weight: 900;
+      gap: 8px;
+      background: #e03030;
       color: #fff;
+      border: 2px solid var(--navy);
+      font-size: .82rem;
+      font-weight: 900;
+      letter-spacing: .06em;
       text-transform: uppercase;
-      letter-spacing: .04em;
-      line-height: 1.05;
-      margin-bottom: 14px;
-      max-width: 640px;
+      padding: 14px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: transform .2s, box-shadow .2s;
     }
-    .camping-hero__sub {
-      font-size: 1rem;
-      font-weight: 600;
-      color: rgba(255,255,255,.78);
-      line-height: 1.65;
-      max-width: 520px;
-      margin-bottom: 36px;
-    }
-    /* ── TICKER CAMPING ── */
-    .camping-feat-ticker {
-      width: 100%;
-      background: #fff;
-      border-top: 1px solid #e8e8e8;
-      border-bottom: 1px solid #e8e8e8;
+    .camp-hero__cta:hover { transform: translateY(-2px); box-shadow: 4px 4px 0 rgba(11,26,59,.18); }
+    .camp-hero__photo-wrap { position: relative; }
+    .camp-hero__photo {
+      position: relative;
+      height: 380px;
       overflow: hidden;
-      height: 52px;
+      border: 3px solid var(--navy);
+      border-radius: 200px 200px 28px 28px;
+    }
+    .camp-hero__slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1.2s ease;
+    }
+    .camp-hero__slide.is-active { opacity: 1; }
+    .camp-doodle { position: absolute; pointer-events: none; opacity: .9; }
+    .camp-doodle--moon { top: -10px; left: -6px; }
+    .camp-doodle--star1 { top: 30px; left: 62px; transform: rotate(-8deg); }
+    .camp-doodle--tent { left: -20px; bottom: 30px; }
+    .camp-doodle--grass1 { left: 96px; bottom: 6px; }
+    .camp-doodle--trees { right: -30px; top: -6px; }
+    .camp-doodle--star2 { right: -46px; top: 60px; }
+    .camp-doodle--fire { right: -26px; bottom: 6px; }
+
+    /* ── TICKER CAMPING ── */
+    .camp-ticker {
+      width: 100%;
+      background: var(--navy);
+      overflow: hidden;
+      height: 58px;
       display: flex;
       align-items: center;
     }
-    .camping-feat-ticker__track {
+    .camp-ticker__track {
       display: flex;
       align-items: center;
       white-space: nowrap;
       animation: camping-scroll 28s linear infinite;
       will-change: transform;
     }
-    .camping-feat-ticker__track:hover { animation-play-state: paused; }
+    .camp-ticker__track:hover { animation-play-state: paused; }
     @keyframes camping-scroll {
       from { transform: translateX(0); }
       to   { transform: translateX(-50%); }
     }
-    .camping-feat-ticker__item {
+    .camp-ticker__item {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 0 28px;
-      font-family: 'Nunito', sans-serif;
-      font-size: 1rem;
+      gap: 10px;
+      padding: 0 24px;
+      font-size: .92rem;
       font-weight: 900;
       text-transform: uppercase;
-      letter-spacing: .08em;
-      color: #0d1b3e;
+      letter-spacing: .04em;
+      color: #fff;
       white-space: nowrap;
     }
-    .camping-feat-ticker__sep {
-      display: inline-block;
-      padding: 0 8px;
-      color: #f5c518;
-      font-size: 1rem;
-      line-height: 1;
-    }
-
-    /* ── INFO STRIP ── */
-    .camping-info {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 420px;
-    }
-    .camping-info__body {
-      background: #0a1830;
-      padding: 64px min(80px, 6vw);
-      display: flex;
-      flex-direction: column;
+    .camp-ticker__icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 9px;
+      display: inline-flex;
+      align-items: center;
       justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .camp-ticker__icon--1 { background: #3ab54a; }
+    .camp-ticker__icon--2 { background: #e0782f; }
+    .camp-ticker__icon--3 { background: #1dc0c0; }
+    .camp-ticker__icon--4 { background: #f5c518; }
+    .camp-ticker__icon--5 { background: #4a7fe0; }
+    .camp-ticker__sep { color: var(--yellow); font-size: 1rem; }
+
+    /* ── TODO LO QUE NECESITAS ── */
+    .camp-feat {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 60px 24px 72px;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .camp-feat__title {
+      font-size: clamp(1.7rem, 3vw, 2.2rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .camp-feat__title span { display: block; }
+    .camp-feat__title .l1 { color: var(--navy); }
+    .camp-feat__title .l2 { color: #e03030; }
+    .camp-feat .aloj-dash { margin-bottom: 16px; }
+    .camp-feat__text {
+      font-size: .92rem;
+      font-weight: 600;
+      color: rgba(11,26,59,.72);
+      line-height: 1.6;
+    }
+    .camp-feat__text strong { color: #e03030; }
+    .camp-cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
       gap: 18px;
     }
-    .camping-info__label {
-      font-size: 0.8rem;
-      font-weight: 900;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: var(--yellow);
-    }
-    .camping-info__title {
-      font-size: clamp(1.8rem, 3vw, 2.4rem);
-      font-weight: 900;
-      color: #fff;
-      text-transform: uppercase;
-      letter-spacing: .03em;
-      line-height: 1.12;
-    }
-    .camping-info__divider {
-      width: 52px;
-      height: 3px;
-      background: var(--yellow);
-      border-radius: 2px;
-    }
-    .camping-info__text {
-      font-size: 1.15rem;
-      font-weight: 600;
-      color: rgba(255,255,255,.78);
-      line-height: 1.8;
-    }
-    .camping-info__link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--yellow);
-      color: var(--navy);
-      font-size: .78rem;
-      font-weight: 900;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      padding: 12px 28px;
-      border-radius: 50px;
-      align-self: flex-start;
-      transition: background .2s, transform .2s;
-    }
-    .camping-info__link:hover { background: var(--yellow-dark); transform: translateY(-2px); }
-
-    /* ── FACILITY CHIPS ── */
-    .camping-facilities {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 4px;
-    }
-    .camping-facility {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      background: rgba(255,255,255,.07);
-      border: 1px solid rgba(255,255,255,.13);
-      color: rgba(255,255,255,.88);
-      font-size: .82rem;
-      font-weight: 700;
-      letter-spacing: .04em;
-      padding: 7px 16px;
-      border-radius: 50px;
-      white-space: nowrap;
-    }
-    .camping-facility__icon { font-size: 1rem; line-height: 1; }
-
-    /* Carrusel */
-    .camping-info__carousel {
+    .camp-card {
       position: relative;
-      overflow: hidden;
-      background: #000;
-    }
-    .camping-note__slides {
+      border: 2.5px solid var(--navy);
+      border-radius: 26px 22px 28px 20px;
+      padding: 22px 18px 20px;
       display: flex;
-      height: 100%;
-      transition: transform .5s ease;
+      flex-direction: column;
+      gap: 10px;
+      transition: transform .2s, box-shadow .2s;
     }
-    .camping-note__img {
-      flex-shrink: 0;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .camping-note__arrow {
+    .camp-card:hover { transform: translateY(-3px); box-shadow: 5px 5px 0 rgba(11,26,59,.12); }
+    .camp-card--1 { background: #cdeae6; }
+    .camp-card--2 { background: var(--yellow); }
+    .camp-card--3 { background: #fff; }
+    .camp-card--4 { background: #dcf3dc; }
+    .camp-card__num {
       position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0,0,0,.4);
-      color: #fff;
-      border: none;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      font-size: 1.1rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 2;
-      transition: background .2s;
-      padding: 0;
+      top: 16px;
+      right: 18px;
+      font-size: 1.2rem;
+      font-weight: 900;
+      font-style: italic;
+      color: var(--navy);
+      opacity: .4;
     }
-    .camping-note__arrow:hover { background: rgba(0,0,0,.7); }
-    .camping-note__arrow--prev { left: 14px; }
-    .camping-note__arrow--next { right: 14px; }
-    .camping-note__dots {
-      position: absolute;
-      bottom: 14px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 7px;
+    .camp-card__icon { margin-bottom: 4px; }
+    .camp-card__title {
+      font-size: .98rem;
+      font-weight: 900;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: .01em;
+      line-height: 1.2;
     }
-    .camping-note__dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: rgba(255,255,255,.4);
-      cursor: pointer;
-      transition: background .3s;
+    .camp-card__text {
+      font-size: .8rem;
+      font-weight: 600;
+      color: rgba(11,26,59,.68);
+      line-height: 1.5;
     }
-    .camping-note__dot.active { background: #fff; }
 
     /* ── MAPA STRIP ── */
     .camping-map {
-      background: #060f26;
-      padding-bottom: 56px;
+      background: var(--navy);
+      padding-bottom: 0;
     }
     .camping-map__header {
-      background: #060f26;
-      padding: 36px min(80px, 6vw) 30px;
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 44px 24px 30px;
       display: flex;
       align-items: flex-end;
       justify-content: space-between;
       gap: 20px;
-      border-bottom: 1px solid rgba(255,255,255,.08);
-    }
-    .camping-map__header-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: var(--yellow);
-      color: var(--navy);
-      font-size: .7rem;
-      font-weight: 900;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      padding: 5px 14px;
-      border-radius: 50px;
-      margin-bottom: 12px;
     }
     .camping-map__header-title {
       font-size: clamp(1.4rem, 3vw, 2rem);
@@ -323,16 +274,19 @@
     }
     .camping-map__header-btn:hover { background: var(--yellow); color: var(--navy); }
     .camping-map__grid {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 24px;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      height: 480px;
+      height: 420px;
+      gap: 20px;
     }
     .camping-map__panel {
       position: relative;
       overflow: hidden;
-    }
-    .camping-map__panel--zone {
-      border-right: 3px solid var(--yellow);
+      border: 2.5px solid var(--yellow);
+      border-radius: 22px;
     }
     .camping-map__panel-label {
       position: absolute;
@@ -386,6 +340,16 @@
       text-transform: uppercase;
       padding: 10px 22px;
       border-radius: 50px;
+    }
+    .camping-map__zigzag {
+      height: 20px;
+      margin-top: 40px;
+      background-image:
+        linear-gradient(135deg, #f6f1e2 25%, transparent 25.5%),
+        linear-gradient(225deg, #f6f1e2 25%, transparent 25.5%);
+      background-position: 0 0;
+      background-size: 26px 26px;
+      background-repeat: repeat-x;
     }
     .camping-map__zone-img {
       width: 100%;
@@ -447,25 +411,25 @@
     }
 
     /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .camp-doodle { display: none; }
+      .camp-hero { grid-template-columns: 1fr; gap: 24px; padding: 32px 20px; }
+      .camp-hero__photo { height: 260px; border-radius: 120px 120px 24px 24px; }
+      .camp-hero__sub { max-width: none; }
+      .camp-feat { grid-template-columns: 1fr; padding: 40px 20px 48px; gap: 28px; }
+      .camp-cards { grid-template-columns: 1fr 1fr; }
+    }
     @media (max-width: 700px) {
       .topbar__title { display: none; }
-      .camping-hero { min-height: unset; background-attachment: scroll; }
-      .camping-hero__content { padding: 24px 20px 16px; }
-      .camping-hero__bg { background-attachment: scroll; }
-      .camping-feat-ticker { height: 44px; }
-      .camping-feat-ticker__item { font-size: .72rem; padding: 0 18px; gap: 6px; }
-      .camping-info { grid-template-columns: 1fr; }
-      .camping-info__body { padding: 40px 24px; }
-      .camping-info__carousel { height: 280px; }
-      .camping-note__img { height: 280px; }
+      .camp-ticker { height: 46px; }
+      .camp-ticker__item { font-size: .74rem; padding: 0 16px; gap: 7px; }
+      .camp-ticker__icon { width: 24px; height: 24px; font-size: .82rem; }
       .camping-map__header { flex-direction: column; align-items: flex-start; padding: 28px 20px 24px; gap: 16px; }
       .camping-map__header-btn { align-self: flex-start; }
-      .camping-map__grid { grid-template-columns: 1fr; height: auto; }
-      .camping-map__panel--zone { border-right: none; border-bottom: 3px solid var(--yellow); }
-      .camping-map__zone-img { height: 280px; }
-      .camping-map__iframe { height: 260px; }
-      .camping-facilities { gap: 8px; }
-      .camping-facility { font-size: .8rem; padding: 7px 14px; }
+      .camping-map__grid { grid-template-columns: 1fr; height: auto; padding: 0 20px; gap: 16px; }
+      .camping-map__zone-img { height: 260px; }
+      .camping-map__iframe { height: 240px; }
+      .camp-cards { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -493,6 +457,7 @@
           <li><a href="index.html#noticias" class="nav__link">Noticias</a></li>
           <li><a href="transporte.html" class="nav__link">Transporte</a></li>
           <li><a href="camping.html#camping" class="nav__link active">Camping <span class="nav__badge--gratis">(GRATIS)</span></a></li>
+          <li><a href="alojamiento.html" class="nav__link">Alojamiento</a></li>
           <li><a href="index.html#contacto" class="nav__link">Contacto</a></li>
         </ul>
       </nav>
@@ -500,84 +465,113 @@
     </div>
   </header>
 
-  <section class="camping-hero">
-    <div class="camping-hero__bg"></div>
-    <div class="camping-hero__overlay"></div>
-    <div class="camping-hero__content">
-      <h1 class="camping-hero__title">¿Se te ocurre<br>un plan mejor?</h1>
+  <!-- Hero -->
+  <section class="camp-hero">
+    <div class="camp-hero__text">
+      <p class="camp-hero__label">Dormir bajo las estrellas</p>
+      <h1 class="camp-hero__title">¿Se te ocurre<br>un plan mejor?</h1>
+      <div class="aloj-dash" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+      <p class="camp-hero__sub">Camping gratuito junto a la piscina municipal de Alburquerque. Llega, instala tu tienda y disfruta.</p>
+      <a href="#ubicacion" class="camp-hero__cta">Ver ubicación →</a>
+    </div>
+    <div class="camp-hero__photo-wrap">
+      <span class="camp-doodle camp-doodle--moon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="#0b1a3b" stroke-width="1.6" stroke-linecap="round"><path d="M15 3a9 9 0 1 0 6 15.5A9 9 0 0 1 15 3z"/></svg>
+      </span>
+      <span class="camp-doodle camp-doodle--star1" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="#f5c518"><path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8z"/></svg>
+      </span>
+      <span class="camp-doodle camp-doodle--tent" aria-hidden="true">
+        <svg viewBox="0 0 48 40" width="64" height="52" fill="none" stroke="#0b1a3b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M24 4 L4 36 M24 4 L44 36 M12 36 H36 M24 4 V36"/></svg>
+      </span>
+      <span class="camp-doodle camp-doodle--grass1" aria-hidden="true">
+        <svg viewBox="0 0 20 12" width="26" height="16" fill="none" stroke="#3ab54a" stroke-width="1.6" stroke-linecap="round"><path d="M2 12 Q3 4 5 12 M8 12 Q9 2 11 12 M14 12 Q15 5 17 12"/></svg>
+      </span>
+      <span class="camp-doodle camp-doodle--trees" aria-hidden="true">
+        <svg viewBox="0 0 24 40" width="30" height="48" fill="none" stroke="#3ab54a" stroke-width="1.6" stroke-linejoin="round"><path d="M12 2 L4 16 H20 Z M12 10 L2 26 H22 Z"/><line x1="12" y1="26" x2="12" y2="36"/></svg>
+      </span>
+      <span class="camp-doodle camp-doodle--star2" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="#f5c518"><path d="M12 2l1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8z"/></svg>
+      </span>
+      <span class="camp-doodle camp-doodle--fire" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="38" height="38" fill="none" stroke="#e03030" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 6c3 4 1 6 3 9 2-1 3-4 2-6 3 3 4 8 1 12-3 3-9 3-11-1-1-2 0-4 1-6 1 2 2 2 2 0-1-2-1-3 2-8z"/><line x1="6" y1="26" x2="26" y2="26"/></svg>
+      </span>
+      <div class="camp-hero__photo" id="campHeroPhoto">
+        <div class="camp-hero__slide is-active" style="background-image:url('IMG/piscina_1.webp')"></div>
+        <div class="camp-hero__slide" style="background-image:url('IMG/piscina_2.webp')"></div>
+        <div class="camp-hero__slide" style="background-image:url('IMG/piscina_3.webp')"></div>
+        <div class="camp-hero__slide" style="background-image:url('IMG/piscina_4.webp')"></div>
+        <div class="camp-hero__slide" style="background-image:url('IMG/piscina_5.webp')"></div>
+      </div>
     </div>
   </section>
 
   <!-- Banda informativa ticker -->
-  <div class="camping-feat-ticker" aria-label="Servicios del camping">
-    <div class="camping-feat-ticker__track">
+  <div class="camp-ticker" aria-label="Servicios del camping">
+    <div class="camp-ticker__track">
       <!-- Set 1 -->
-      <span class="camping-feat-ticker__item">⛺ Camping Gratuito</span>
-      <span class="camping-feat-ticker__sep">✦</span>
-      <span class="camping-feat-ticker__item">🚐 Área de Autocaravanas</span>
-      <span class="camping-feat-ticker__sep">✦</span>
-      <span class="camping-feat-ticker__item">🏊 Piscina Municipal</span>
-      <span class="camping-feat-ticker__sep">✦</span>
-      <span class="camping-feat-ticker__item">🎶 A 10 Min del Festival</span>
-      <span class="camping-feat-ticker__sep">✦</span>
-      <span class="camping-feat-ticker__item">🌳 Rodeado de Naturaleza</span>
-      <span class="camping-feat-ticker__sep">✦</span>
-      <span class="camping-feat-ticker__item">🚿 Aseos &amp; Duchas</span>
-      <span class="camping-feat-ticker__sep">✦</span>
+      <span class="camp-ticker__item"><span class="camp-ticker__icon camp-ticker__icon--1">⛺</span> Camping Gratuito</span>
+      <span class="camp-ticker__sep">✦</span>
+      <span class="camp-ticker__item"><span class="camp-ticker__icon camp-ticker__icon--2">🚐</span> Área de Autocaravanas</span>
+      <span class="camp-ticker__sep">✦</span>
+      <span class="camp-ticker__item"><span class="camp-ticker__icon camp-ticker__icon--3">🏊</span> Piscina Municipal</span>
+      <span class="camp-ticker__sep">✦</span>
+      <span class="camp-ticker__item"><span class="camp-ticker__icon camp-ticker__icon--4">🕐</span> A 10 Min del Festival</span>
+      <span class="camp-ticker__sep">✦</span>
+      <span class="camp-ticker__item"><span class="camp-ticker__icon camp-ticker__icon--5">🚿</span> Aseos y Duchas</span>
+      <span class="camp-ticker__sep">✦</span>
       <!-- Set 2 (copia para bucle infinito) -->
-      <span class="camping-feat-ticker__item">⛺ Camping Gratuito</span>
-      <span class="camping-feat-ticker__sep">✦</span>
-      <span class="camping-feat-ticker__item">🚐 Área de Autocaravanas</span>
-      <span class="camping-feat-ticker__sep">✦</span>
-      <span class="camping-feat-ticker__item">🏊 Piscina Municipal</span>
-      <span class="camping-feat-ticker__sep">✦</span>
-      <span class="camping-feat-ticker__item">🎶 A 10 Min del Festival</span>
-      <span class="camping-feat-ticker__sep">✦</span>
-      <span class="camping-feat-ticker__item">🌳 Rodeado de Naturaleza</span>
-      <span class="camping-feat-ticker__sep">✦</span>
-      <span class="camping-feat-ticker__item">🚿 Aseos &amp; Duchas</span>
-      <span class="camping-feat-ticker__sep">✦</span>
+      <span class="camp-ticker__item"><span class="camp-ticker__icon camp-ticker__icon--1">⛺</span> Camping Gratuito</span>
+      <span class="camp-ticker__sep">✦</span>
+      <span class="camp-ticker__item"><span class="camp-ticker__icon camp-ticker__icon--2">🚐</span> Área de Autocaravanas</span>
+      <span class="camp-ticker__sep">✦</span>
+      <span class="camp-ticker__item"><span class="camp-ticker__icon camp-ticker__icon--3">🏊</span> Piscina Municipal</span>
+      <span class="camp-ticker__sep">✦</span>
+      <span class="camp-ticker__item"><span class="camp-ticker__icon camp-ticker__icon--4">🕐</span> A 10 Min del Festival</span>
+      <span class="camp-ticker__sep">✦</span>
+      <span class="camp-ticker__item"><span class="camp-ticker__icon camp-ticker__icon--5">🚿</span> Aseos y Duchas</span>
+      <span class="camp-ticker__sep">✦</span>
     </div>
   </div>
 
-  <div class="camping-info">
-    <div class="camping-info__body">
-
-      <div class="camping-info__divider"></div>
-      <p class="camping-info__text">El camping está situado junto a la piscina municipal de Alburquerque, en un entorno verde y tranquilo. Dispone de zona para tiendas de campaña y área de autocaravanas, <strong class="text-yellow">totalmente gratuitas</strong> durante los días del CPOP 30 Aniversario. Las instalaciones cuentan con <strong class="text-yellow">aseos y duchas</strong>. Sin reserva previa — llega, instala y disfruta.</p>
-      <div class="camping-facilities">
-        <span class="camping-facility"><span class="camping-facility__icon">⛺</span> Zona de Acampada</span>
-        <span class="camping-facility"><span class="camping-facility__icon">🚐</span> Área de Autocaravanas</span>
-        <span class="camping-facility"><span class="camping-facility__icon">🚻</span> Aseos</span>
-        <span class="camping-facility"><span class="camping-facility__icon">🚿</span> Duchas</span>
-        <span class="camping-facility"><span class="camping-facility__icon">🏊</span> Piscina Municipal</span>
-      </div>
-      <a href="https://maps.google.com/maps?q=Piscina+Municipal+Alburquerque+Badajoz" target="_blank" rel="noopener" class="camping-info__link">
-        Ver ubicación →
-      </a>
+  <!-- Todo lo que necesitas -->
+  <section class="camp-feat">
+    <div>
+      <h2 class="camp-feat__title"><span class="l1">Todo lo que necesitas,</span><span class="l2">gratis.</span></h2>
+      <div class="aloj-dash" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+      <p class="camp-feat__text">El camping está situado junto a la piscina municipal de Alburquerque, en un entorno verde y tranquilo. Dispone de zona para tiendas de campaña y área de autocaravanas, <strong>totalmente gratuito</strong> durante los días del CPOP 30 Aniversario. Las instalaciones cuentan con aseos y duchas. Sin reserva previa — llega, instala y disfruta.</p>
     </div>
-    <div class="camping-info__carousel" id="campingCarousel">
-      <div class="camping-note__slides" id="campingSlides">
-        <img src="IMG/piscina_2.webp" alt="Camping municipal" class="camping-note__img" loading="lazy" />
-        <img src="IMG/piscina_3.webp" alt="Zona de acampada" class="camping-note__img" loading="lazy" />
-        <img src="IMG/piscina_4.webp" alt="Piscina municipal" class="camping-note__img" loading="lazy" />
-        <img src="IMG/piscina_5.webp" alt="Entorno natural" class="camping-note__img" loading="lazy" />
+    <div class="camp-cards">
+      <div class="camp-card camp-card--1">
+        <span class="camp-card__num">01</span>
+        <span class="camp-card__icon"><svg viewBox="0 0 40 32" width="46" height="38" fill="none" stroke="#0b1a3b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4 L4 28 M20 4 L36 28 M12 28 H28 M20 12 V28"/></svg></span>
+        <h3 class="camp-card__title">Zona de Acampada</h3>
+        <p class="camp-card__text">Amplia zona verde para tiendas de campaña. Sombra natural y mucho espacio para descansar.</p>
       </div>
-      <button class="camping-note__arrow camping-note__arrow--prev" id="campingPrev" aria-label="Anterior">&#8592;</button>
-      <button class="camping-note__arrow camping-note__arrow--next" id="campingNext" aria-label="Siguiente">&#8594;</button>
-      <div class="camping-note__dots" id="campingDots">
-        <span class="camping-note__dot active" data-idx="0"></span>
-        <span class="camping-note__dot" data-idx="1"></span>
-        <span class="camping-note__dot" data-idx="2"></span>
-        <span class="camping-note__dot" data-idx="3"></span>
+      <div class="camp-card camp-card--2">
+        <span class="camp-card__num">02</span>
+        <span class="camp-card__icon"><svg viewBox="0 0 48 32" width="50" height="34" fill="none" stroke="#0b1a3b" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"><path d="M4 24V12h20l8 8h10v4"/><circle cx="14" cy="26" r="3"/><circle cx="34" cy="26" r="3"/><line x1="24" y1="12" x2="24" y2="20"/></svg></span>
+        <h3 class="camp-card__title">Autocaravanas</h3>
+        <p class="camp-card__text">Área habilitada para autocaravanas con acceso cómodo y seguro.</p>
+      </div>
+      <div class="camp-card camp-card--3">
+        <span class="camp-card__num">03</span>
+        <span class="camp-card__icon"><svg viewBox="0 0 32 32" width="38" height="38" fill="none" stroke="#0b1a3b" stroke-width="1.8" stroke-linecap="round"><path d="M8 10a8 8 0 0 1 16 0"/><line x1="4" y1="10" x2="28" y2="10"/><line x1="10" y1="16" x2="10" y2="19"/><line x1="16" y1="16" x2="16" y2="21"/><line x1="22" y1="16" x2="22" y2="19"/></svg></span>
+        <h3 class="camp-card__title">Aseos y Duchas</h3>
+        <p class="camp-card__text">Instalaciones de aseos y duchas limpias y disponibles para todos los campistas.</p>
+      </div>
+      <div class="camp-card camp-card--4">
+        <span class="camp-card__num">04</span>
+        <span class="camp-card__icon"><svg viewBox="0 0 32 32" width="38" height="38" fill="none" stroke="#0b1a3b" stroke-width="1.8" stroke-linecap="round"><path d="M2 24q3-3 6 0t6 0 6 0 6 0 6 0"/><line x1="24" y1="4" x2="24" y2="18"/><line x1="28" y1="4" x2="28" y2="18"/><line x1="24" y1="8" x2="28" y2="8"/><line x1="24" y1="14" x2="28" y2="14"/></svg></span>
+        <h3 class="camp-card__title">Piscina Municipal</h3>
+        <p class="camp-card__text">Refresca tu día en la piscina municipal situada junto al camping.</p>
       </div>
     </div>
-  </div>
+  </section>
 
   <section class="camping-map" id="ubicacion">
     <div class="camping-map__header">
       <div>
-        <span class="camping-map__header-badge">📍 Ubicación</span>
         <h2 class="camping-map__header-title">Cómo llegar al camping</h2>
         <p class="camping-map__header-sub">Piscina Municipal de Alburquerque, Badajoz</p>
       </div>
@@ -603,6 +597,7 @@
         </iframe>
       </div>
     </div>
+    <div class="camping-map__zigzag" aria-hidden="true"></div>
   </section>
 
   <!-- Lightbox -->
@@ -625,78 +620,18 @@
     document.addEventListener('keydown', function(e) { if (e.key === 'Escape') shut(); });
   })();
 
+  // Slideshow foto hero
   (function () {
-    const slides = document.getElementById('campingSlides');
-    const dots = document.querySelectorAll('#campingDots .camping-note__dot');
-    const total = dots.length;
-    let current = 0;
-    let timer;
-
-    function goTo(idx) {
-      current = idx;
-      slides.style.transform = 'translateX(-' + (idx * slides.parentElement.offsetWidth) + 'px)';
-      dots.forEach(function(d, i) {
-        d.classList.toggle('active', i === idx);
-      });
-    }
-
-    function next() { goTo((current + 1) % total); }
-    function startAuto() { timer = setInterval(next, 3000); }
-    function stopAuto()  { clearInterval(timer); }
-
-    dots.forEach(function(dot) {
-      dot.addEventListener('click', function() {
-        stopAuto();
-        goTo(parseInt(this.dataset.idx));
-        startAuto();
-      });
-    });
-
-    function updateWidths() {
-      var w = slides.parentElement.offsetWidth;
-      document.querySelectorAll('.camping-note__img').forEach(function(img) {
-        img.style.width = w + 'px';
-        img.style.flexShrink = '0';
-      });
-      slides.style.transform = 'translateX(-' + (current * w) + 'px)';
-    }
-
-    window.addEventListener('resize', function() { updateWidths(); });
-    setTimeout(updateWidths, 50);
-
-    document.getElementById('campingPrev').addEventListener('click', function() {
-      stopAuto(); goTo((current - 1 + total) % total); startAuto();
-    });
-    document.getElementById('campingNext').addEventListener('click', function() {
-      stopAuto(); goTo((current + 1) % total); startAuto();
-    });
-
-    startAuto();
+    var slides = document.querySelectorAll('#campHeroPhoto .camp-hero__slide');
+    if (!slides.length) return;
+    var current = 0;
+    setInterval(function () {
+      slides[current].classList.remove('is-active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('is-active');
+    }, 4000);
   })();
 </script>
-
-  <script>
-    (function(){
-      const toggle = document.getElementById('navToggle');
-      const nav = document.getElementById('mainNav');
-      const header = document.getElementById('header');
-      toggle.addEventListener('click', function(){
-        const open = toggle.classList.toggle('open');
-        nav.classList.toggle('open', open);
-        toggle.setAttribute('aria-expanded', open);
-      });
-      nav.querySelectorAll('.nav__link').forEach(function(link){
-        link.addEventListener('click', function(){
-          toggle.classList.remove('open');
-          nav.classList.remove('open');
-          toggle.setAttribute('aria-expanded', 'false');
-        });
-      });
-      window.addEventListener('scroll', function(){
-        header.classList.toggle('scrolled', window.scrollY > 20);
-      }, { passive: true });
-    })();
-  </script>
 
   <!-- ============================================================
        FOOTER

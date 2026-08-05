@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alojamientos en Alburquerque – CPOP 30 Aniversario</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    body {
+      background: #f6f1e2;
+      color: var(--navy);
+      padding-top: 66px;
+    }
+
+    /* ── CABECERA ── */
+    .aloj-top {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 48px 24px 8px;
+      text-align: center;
+    }
+    .aloj-top__back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: .82rem;
+      font-weight: 800;
+      color: rgba(11,26,59,.6);
+      text-decoration: none;
+      margin-bottom: 22px;
+    }
+    .aloj-top__back:hover { color: var(--navy); }
+    .aloj-top__label {
+      font-size: .75rem;
+      font-weight: 900;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--yellow-dark);
+      margin-bottom: 14px;
+    }
+    .aloj-top__title {
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      font-weight: 900;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: .01em;
+      line-height: 1.1;
+      margin-bottom: 18px;
+    }
+    .aloj-dash { display: flex; justify-content: center; gap: 6px; margin: 0 auto 22px; }
+    .aloj-dash span { width: 26px; height: 4px; border-radius: 2px; }
+    .aloj-dash span:nth-child(1) { background: #e03030; }
+    .aloj-dash span:nth-child(2) { background: #1dc0c0; }
+    .aloj-dash span:nth-child(3) { background: #f5c518; }
+    .aloj-dash span:nth-child(4) { background: #3ab54a; }
+    .aloj-top__sub {
+      font-size: 1rem;
+      font-weight: 700;
+      color: rgba(11,26,59,.7);
+      max-width: 620px;
+      margin: 0 auto 46px;
+      line-height: 1.6;
+    }
+
+    /* ── GRID ── */
+    .aloj-grid {
+      max-width: var(--container);
+      margin: 0 auto 72px;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    .aloj-card {
+      background: #fff;
+      border: 2.5px solid var(--navy);
+      border-radius: 26px 22px 28px 20px;
+      padding: 24px 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .aloj-card:hover { transform: translateY(-3px); box-shadow: 6px 6px 0 rgba(11,26,59,.12); }
+    .aloj-card__badge {
+      align-self: flex-start;
+      background: var(--yellow);
+      color: var(--navy);
+      font-size: .68rem;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 50px;
+    }
+    .aloj-card__title {
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: .01em;
+      line-height: 1.25;
+    }
+    .aloj-card .aloj-dash { justify-content: flex-start; margin: 0 0 2px; }
+    .aloj-card .aloj-dash span { width: 18px; height: 3px; }
+    .aloj-card__row {
+      display: flex;
+      gap: 8px;
+      font-size: .88rem;
+      font-weight: 600;
+      color: rgba(11,26,59,.72);
+      line-height: 1.5;
+    }
+    .aloj-card__row-icon { flex-shrink: 0; }
+    .aloj-card__divider {
+      height: 1px;
+      background: rgba(11,26,59,.1);
+      margin: 4px 0;
+    }
+    .aloj-card__contact {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-top: auto;
+    }
+    .aloj-card__contact a {
+      font-size: .88rem;
+      font-weight: 700;
+      color: var(--navy);
+      text-decoration: none;
+    }
+    .aloj-card__contact a:hover { color: var(--yellow-dark); text-decoration: underline; }
+    .aloj-card__resp {
+      font-size: .78rem;
+      font-weight: 700;
+      color: rgba(11,26,59,.5);
+      text-transform: uppercase;
+      letter-spacing: .02em;
+    }
+    .aloj-card__actions { margin-top: 10px; }
+    .aloj-card__cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      width: 100%;
+      font-size: .82rem;
+      font-weight: 900;
+      letter-spacing: .02em;
+      text-transform: uppercase;
+      color: var(--navy);
+      background: #fff;
+      border: 2px solid var(--navy);
+      padding: 10px 22px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: background .2s, color .2s;
+    }
+    .aloj-card__cta:hover { background: var(--navy); color: #fff; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      .topbar__title { display: none; }
+      .aloj-top { padding: 36px 20px 4px; }
+      .aloj-top__sub { margin-bottom: 30px; }
+      .aloj-grid { padding: 0 20px; margin-bottom: 48px; gap: 16px; grid-template-columns: 1fr; }
+      .aloj-card { padding: 20px 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Barra de navegación -->
+  <header class="header" id="header">
+    <div class="header__inner container">
+      <a href="index.html" class="header__logo" aria-label="CPOP Albuquerque – Inicio">
+        <div class="logo-block">
+          <span class="logo-cpop">
+            <span class="lc lc--c">C</span><span class="lc lc--p1">P</span><span class="lc lc--o">O</span><span class="lc lc--p2">P</span>
+          </span>
+          <span class="logo-sub">ALBURQUERQUE</span>
+          <span class="logo-tagline">UNA CELEBRACIÓN DEL POP Y LA AMISTAD</span>
+        </div>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" id="mainNav" aria-label="Navegación principal">
+        <ul class="nav__list">
+          <li><a href="index.html#inicio" class="nav__link">Inicio</a></li>
+          <li><a href="index.html#artistas" class="nav__link">Artistas</a></li>
+          <li><a href="index.html#noticias" class="nav__link">Noticias</a></li>
+          <li><a href="transporte.html" class="nav__link">Transporte</a></li>
+          <li><a href="camping.html#camping" class="nav__link">Camping <span class="nav__badge--gratis">(GRATIS)</span></a></li>
+          <li><a href="alojamiento.html" class="nav__link active">Alojamiento</a></li>
+          <li><a href="index.html#contacto" class="nav__link">Contacto</a></li>
+        </ul>
+      </nav>
+      <a href="https://www.ingresse.com/cpop-alburquerque/?fbclid=IwdGRjcASCII5leHRuA2FlbQIxMQBzcnRjBmFwcF9pZAo2NjI4NTY4Mzc5AAEee5uqFv4fO0525LSwj2ie0vXU6-nmaHX3tvUfMMzoU2Lqj_KQda3P3f-u3kg_aem_mg-QYjBcH6FSSytffSt7Vg&utm_id=97758_v0_s00_e0_tv2_a1dennhb5nbjy0" target="_blank" rel="noopener" class="btn btn--yellow btn--sm header__cta">Entradas</a>
+    </div>
+  </header>
+
+  <!-- Cabecera -->
+  <div class="aloj-top">
+    <a href="alojamiento.html" class="aloj-top__back">← Volver a Alojamiento</a>
+    <p class="aloj-top__label">En el pueblo</p>
+    <h1 class="aloj-top__title">Alojamientos en Alburquerque</h1>
+    <div class="aloj-dash" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+    <p class="aloj-top__sub">Hoteles, casas y apartamentos rurales a un paso del Castillo y del festival. Contacta directamente con cada establecimiento para consultar disponibilidad y precios.</p>
+  </div>
+
+  <!-- Grid de alojamientos -->
+  <div class="aloj-grid">
+
+    <article class="aloj-card">
+      <span class="aloj-card__badge">Hotel 3*</span>
+      <h2 class="aloj-card__title">Hotel Machaco</h2>
+      <p class="aloj-card__row"><span class="aloj-card__row-icon">📍</span> Calle Pozo del Concejo, 29</p>
+      <p class="aloj-card__row"><span class="aloj-card__row-icon">🛏️</span> 19 habitaciones (38 personas)</p>
+      <div class="aloj-card__divider"></div>
+      <div class="aloj-card__contact">
+        <a href="tel:+34924400181">📞 +34 924 400 181</a>
+        <a href="mailto:oficina@imachaco.es">✉️ oficina@imachaco.es</a>
+        <span class="aloj-card__resp">Tomás o Miguel Ángel Gómez</span>
+      </div>
+      <div class="aloj-card__actions">
+        <a href="tel:+34924400181" class="aloj-card__cta">RESERVAR →</a>
+      </div>
+    </article>
+
+    <article class="aloj-card">
+      <span class="aloj-card__badge">Hotel 1*</span>
+      <h2 class="aloj-card__title">Hotel Castillo de Luna</h2>
+      <p class="aloj-card__row"><span class="aloj-card__row-icon">📍</span> Ctra. EX-110 Km 34.5 (a 2 km de la localidad)</p>
+      <p class="aloj-card__row"><span class="aloj-card__row-icon">🛏️</span> 10 habitaciones (7 dobles y 2 individuales)</p>
+      <div class="aloj-card__divider"></div>
+      <div class="aloj-card__contact">
+        <a href="tel:+34924401546">📞 924 401 546</a>
+        <a href="mailto:hotelcastillodeluna@gmail.com">✉️ hotelcastillodeluna@gmail.com</a>
+        <span class="aloj-card__resp">Manolo Pilo</span>
+      </div>
+      <div class="aloj-card__actions">
+        <a href="tel:+34924401546" class="aloj-card__cta">RESERVAR →</a>
+      </div>
+    </article>
+
+    <article class="aloj-card">
+      <span class="aloj-card__badge">Apartamentos 2 llaves</span>
+      <h2 class="aloj-card__title">Apartamentos Turísticos "La Casa Leo"</h2>
+      <p class="aloj-card__row"><span class="aloj-card__row-icon">📍</span> Calle Jovellanos, 5</p>
+      <p class="aloj-card__row"><span class="aloj-card__row-icon">🛏️</span> 16 personas</p>
+      <div class="aloj-card__divider"></div>
+      <div class="aloj-card__contact">
+        <a href="tel:+34605810416">📞 605 810 416</a>
+        <a href="mailto:elcasardeleo@gmail.com">✉️ elcasardeleo@gmail.com</a>
+        <a href="https://www.elcasardeleo.com" target="_blank" rel="noopener">🌐 www.elcasardeleo.com</a>
+        <span class="aloj-card__resp">Leo Gil y Ángel Casatejada</span>
+      </div>
+      <div class="aloj-card__actions">
+        <a href="https://www.elcasardeleo.com" target="_blank" rel="noopener" class="aloj-card__cta">RESERVAR →</a>
+      </div>
+    </article>
+
+    <article class="aloj-card">
+      <span class="aloj-card__badge">Casa Rural 3*</span>
+      <h2 class="aloj-card__title">Casa Apartamento Rural "Estudio de la Artista"</h2>
+      <p class="aloj-card__row"><span class="aloj-card__row-icon">📍</span> C/ Calzada, 7</p>
+      <p class="aloj-card__row"><span class="aloj-card__row-icon">🛏️</span> 1 casa apartamento (6 personas) · Accesible</p>
+      <div class="aloj-card__divider"></div>
+      <div class="aloj-card__contact">
+        <a href="tel:+34605810416">📞 605 810 416</a>
+        <a href="mailto:elcasardeleo@gmail.com">✉️ elcasardeleo@gmail.com</a>
+        <a href="https://www.elcasardeleo.com" target="_blank" rel="noopener">🌐 www.elcasardeleo.com</a>
+        <span class="aloj-card__resp">Leo Gil y Ángel Casatejada</span>
+      </div>
+      <div class="aloj-card__actions">
+        <a href="https://www.elcasardeleo.com" target="_blank" rel="noopener" class="aloj-card__cta">RESERVAR →</a>
+      </div>
+    </article>
+
+    <article class="aloj-card">
+      <span class="aloj-card__badge">Apartamentos 2 llaves</span>
+      <h2 class="aloj-card__title">Apartamentos Turísticos "El Huerto"</h2>
+      <p class="aloj-card__row"><span class="aloj-card__row-icon">📍</span> Avd. de Extremadura, 41</p>
+      <p class="aloj-card__row"><span class="aloj-card__row-icon">🛏️</span> 6 apartamentos (4 personas c/u)</p>
+      <div class="aloj-card__divider"></div>
+      <div class="aloj-card__contact">
+        <a href="tel:+34604430820">📞 604 430 820</a>
+        <a href="mailto:info@apartamentoselhuerto.es">✉️ info@apartamentoselhuerto.es</a>
+        <a href="https://www.apartamentoselhuerto.es" target="_blank" rel="noopener">🌐 www.apartamentoselhuerto.es</a>
+        <span class="aloj-card__resp">Germán Román</span>
+      </div>
+      <div class="aloj-card__actions">
+        <a href="https://www.apartamentoselhuerto.es" target="_blank" rel="noopener" class="aloj-card__cta">RESERVAR →</a>
+      </div>
+    </article>
+
+    <article class="aloj-card">
+      <span class="aloj-card__badge">Casa Rural 4*</span>
+      <h2 class="aloj-card__title">Casa Apartamentos Rurales "Paraje de San Blas"</h2>
+      <p class="aloj-card__row"><span class="aloj-card__row-icon">📍</span> Calle de Mayorga, 37</p>
+      <p class="aloj-card__row"><span class="aloj-card__row-icon">🛏️</span> 5 apartamentos (25 personas): dos de 4, dos de 5 y uno de 7 · Accesible</p>
+      <div class="aloj-card__divider"></div>
+      <div class="aloj-card__contact">
+        <a href="tel:+34642841612">📞 642 841 612 / 669 060 937</a>
+        <a href="mailto:apartamentosparajesanblas@gmail.com">✉️ apartamentosparajesanblas@gmail.com</a>
+        <a href="https://www.parajesanblas.com" target="_blank" rel="noopener">🌐 www.parajesanblas.com</a>
+        <span class="aloj-card__resp">Miguel Ángel Sánchez Rumbo</span>
+      </div>
+      <div class="aloj-card__actions">
+        <a href="https://www.parajesanblas.com" target="_blank" rel="noopener" class="aloj-card__cta">RESERVAR →</a>
+      </div>
+    </article>
+
+    <article class="aloj-card">
+      <span class="aloj-card__badge">Hotel Rural 3*</span>
+      <h2 class="aloj-card__title">Hotel Rural "Los Cantos"</h2>
+      <p class="aloj-card__row"><span class="aloj-card__row-icon">📍</span> Finca Los Cantos – Ctra. del Pantano s/n (a 11 km de la localidad)</p>
+      <p class="aloj-card__row"><span class="aloj-card__row-icon">🛏️</span> 9 habitaciones dobles y 5 chozos</p>
+      <div class="aloj-card__divider"></div>
+      <div class="aloj-card__contact">
+        <a href="tel:+34924141269">📞 924 141 269-71 / 638 762 122</a>
+        <a href="mailto:info@cortijoloscantos.com">✉️ info@cortijoloscantos.com</a>
+        <a href="https://www.cortijoloscantos.com" target="_blank" rel="noopener">🌐 www.cortijoloscantos.com</a>
+        <span class="aloj-card__resp">Eva Mª García y Pepe Carballo</span>
+      </div>
+      <div class="aloj-card__actions">
+        <a href="https://www.cortijoloscantos.com" target="_blank" rel="noopener" class="aloj-card__cta">RESERVAR →</a>
+      </div>
+    </article>
+
+    <article class="aloj-card">
+      <span class="aloj-card__badge">Apartamento Turístico</span>
+      <h2 class="aloj-card__title">Apartamento Turístico "Pozo Concejo"</h2>
+      <p class="aloj-card__row"><span class="aloj-card__row-icon">📍</span> C/ Pozo Concejo, 1</p>
+      <p class="aloj-card__row"><span class="aloj-card__row-icon">🛏️</span> 1 apartamento turístico (6 personas)</p>
+      <div class="aloj-card__divider"></div>
+      <div class="aloj-card__contact">
+        <a href="tel:+34604401579">📞 604 40 15 79</a>
+      </div>
+      <div class="aloj-card__actions">
+        <a href="tel:+34604401579" class="aloj-card__cta">RESERVAR →</a>
+      </div>
+    </article>
+
+    <article class="aloj-card">
+      <span class="aloj-card__badge">Casa Rural 2*</span>
+      <h2 class="aloj-card__title">Casa Apartamento Rural "Santa Ana"</h2>
+      <p class="aloj-card__row"><span class="aloj-card__row-icon">📍</span> C/ Santa Ana</p>
+      <p class="aloj-card__row"><span class="aloj-card__row-icon">🛏️</span> 3 habitaciones (6-8 personas)</p>
+      <div class="aloj-card__divider"></div>
+      <div class="aloj-card__contact">
+        <span class="aloj-card__resp">Sandra Maya y Montse Coroba</span>
+      </div>
+    </article>
+
+    <article class="aloj-card">
+      <span class="aloj-card__badge">Apartamentos Turísticos</span>
+      <h2 class="aloj-card__title">Apartamentos Turísticos "Las Chavitas"</h2>
+      <p class="aloj-card__row"><span class="aloj-card__row-icon">📍</span> Plaza de España, 14</p>
+      <p class="aloj-card__row"><span class="aloj-card__row-icon">🛏️</span> 2 apartamentos turísticos</p>
+      <div class="aloj-card__divider"></div>
+      <div class="aloj-card__contact">
+        <a href="tel:+34633811258">📞 633 811 258</a>
+        <a href="mailto:info@apartamentosturisticoslaschavitas.es">✉️ info@apartamentosturisticoslaschavitas.es</a>
+        <a href="https://www.apartamentosturisticoslaschavitas.es" target="_blank" rel="noopener">🌐 www.apartamentosturisticoslaschavitas.es</a>
+      </div>
+      <div class="aloj-card__actions">
+        <a href="https://www.apartamentosturisticoslaschavitas.es" target="_blank" rel="noopener" class="aloj-card__cta">RESERVAR →</a>
+      </div>
+    </article>
+
+  </div>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer" id="contacto">
+
+    <div class="footer__skyline" aria-hidden="true"></div>
+
+    <div class="footer__inner container">
+
+      <div class="footer__brand">
+        <div class="logo-block logo-block--white">
+          <span class="logo-cpop">
+            <span class="lc lc--c">C</span><span class="lc lc--p1">P</span><span class="lc lc--o">O</span><span class="lc lc--p2">P</span>
+          </span>
+          <span class="logo-sub">ALBURQUERQUE</span>
+          <span class="logo-tagline">UNA CELEBRACIÓN DEL POP Y LA AMISTAD</span>
+        </div>
+        <nav class="social-nav" aria-label="Redes sociales">
+          <a href="#" class="social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.235 2.686.235v2.97h-1.513c-1.491 0-1.956.93-1.956 1.887v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Twitter / X">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Spotify">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+          </a>
+        </nav>
+      </div>
+
+      <div class="footer__col">
+        <h4 class="footer__col-title">INFO</h4>
+        <ul>
+          <li><a href="index.html#inicio">Inicio</a></li>
+          <li><a href="index.html#artistas">Artistas</a></li>
+          <li><a href="index.html#entradas">Entradas</a></li>
+          <li><a href="index.html#info">Info práctica</a></li>
+          <li><a href="index.html#noticias">Noticias</a></li>
+          <li><a href="index.html#contacto">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4 class="footer__col-title">CONTACTO</h4>
+        <ul>
+          <li><a href="mailto:organizacion@cpop.es">organizacion@cpop.es</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4 class="footer__col-title">LEGAL</h4>
+        <ul>
+          <li><a href="aviso_legal.html">Aviso legal</a></li>
+          <li><a href="menores.html">Política de menores</a></li>
+          <li><a href="privacidad.html">Política de privacidad</a></li>
+          <li><a href="cookies.html">Política de cookies</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col footer__col--organiza">
+        <h4 class="footer__col-title">PATROCINA</h4>
+        <div class="sponsors">
+          <a href="#" class="sponsor"><img src="IMG/logo_diputacion.webp"   alt="Diputación de Badajoz" /></a>
+          <a href="#" class="sponsor"><img src="IMG/logo_ayuntamiento.webp" alt="Ayuntamiento de Albuquerque" /></a>
+          <a href="#" class="sponsor"><img src="IMG/contempopranea.webp"    alt="Contempopranea" /></a>
+          <a href="#" class="sponsor"><img src="IMG/caja_rural.webp"        alt="Caja Rural de Extremadura" /></a>
+          <a href="#" class="sponsor sponsor--sm"><img src="IMG/logo_muzikalia.webp" alt="Muzikalia" /></a>
+          <a href="#" class="sponsor"><img src="IMG/logo_lamerienda.webp"   alt="La Merienda" /></a>
+          <a href="#" class="sponsor"><img src="IMG/energia_extremeña.webp" alt="Energía Extremeña" /></a>
+          <a href="#" class="sponsor"><img src="IMG/amstel.webp"            alt="Amstel" /></a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <p>© 2026 CPOP Albuquerque. Todos los derechos reservados.</p>
+    </div>
+
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
