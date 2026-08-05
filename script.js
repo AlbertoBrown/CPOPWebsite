@@ -165,6 +165,7 @@ function initScrollAnimations() {
     '.feature-card, .news-card, .hero__content, .hero__img-wrap, .tickets__content, .tickets__img-wrap, .countdown__unit, ' +
     '.transport-hero__content, .tband, .camping-cta__text, .camping-cta__btn, ' +
     '.camp-hero__text, .camp-hero__photo-wrap, .camp-card, .camping-map__panel, ' +
+    '.camp-feat__text-col, .camping-map__header, ' +
     '.aloj-pick, .aloj-picker__title, .aloj-top, .aloj-card'
   );
 
