@@ -185,7 +185,7 @@
 
     /* ── MAPA STRIP ── */
     .camping-map {
-      background: var(--navy);
+      background: #f6f1e2;
       padding-bottom: 0;
     }
     .camping-map__header {
@@ -200,7 +200,7 @@
     .camping-map__header-title {
       font-size: clamp(1.4rem, 3vw, 2rem);
       font-weight: 900;
-      color: #fff;
+      color: var(--navy);
       text-transform: uppercase;
       letter-spacing: .04em;
       line-height: 1.1;
@@ -209,15 +209,15 @@
     .camping-map__header-sub {
       font-size: .85rem;
       font-weight: 600;
-      color: rgba(255,255,255,.5);
+      color: rgba(11,26,59,.6);
     }
     .camping-map__header-btn {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: transparent;
-      color: var(--yellow);
-      border: 1.5px solid var(--yellow);
+      background: #fff;
+      color: var(--navy);
+      border: 2px solid var(--navy);
       font-size: .78rem;
       font-weight: 900;
       letter-spacing: .08em;
@@ -228,7 +228,7 @@
       flex-shrink: 0;
       transition: background .2s, color .2s;
     }
-    .camping-map__header-btn:hover { background: var(--yellow); color: var(--navy); }
+    .camping-map__header-btn:hover { background: var(--navy); color: #fff; }
     .camping-map__grid {
       max-width: var(--container);
       margin: 0 auto;
@@ -241,7 +241,7 @@
     .camping-map__panel {
       position: relative;
       overflow: hidden;
-      border: 2.5px solid var(--yellow);
+      border: 2.5px solid var(--navy);
       border-radius: 22px;
     }
     .camping-map__panel-label {
